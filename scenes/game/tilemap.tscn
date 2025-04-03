@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw5fb1wfr61bd"]
+
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="1_plsvb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsojw"]
+texture = ExtResource("1_plsvb")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_57hsq"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wsojw")
+
+[node name="Tilemap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_57hsq")

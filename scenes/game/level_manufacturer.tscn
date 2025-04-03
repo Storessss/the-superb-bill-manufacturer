@@ -1,24 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://tjt5idwh0g6n"]
+[gd_scene load_steps=3 format=3 uid="uid://tjt5idwh0g6n"]
 
-[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="1_6d3ef"]
-[ext_resource type="PackedScene" uid="uid://42sop87hgmcr" path="res://scenes/players/bill.tscn" id="2_oxrs7"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsojw"]
-texture = ExtResource("1_6d3ef")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_57hsq"]
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = ""
-custom_data_layer_0/type = 0
-sources/0 = SubResource("TileSetAtlasSource_wsojw")
+[ext_resource type="Script" uid="uid://uhijopk07ajm" path="res://scenes/game/level_manufacturer.gd" id="1_oxrs7"]
+[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="2_6d3ef"]
 
 [node name="LevelManufacturer" type="Node2D"]
+script = ExtResource("1_oxrs7")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_57hsq")
-
-[node name="Bill" parent="." instance=ExtResource("2_oxrs7")]
+[node name="Tilemap" parent="." instance=ExtResource("2_6d3ef")]
