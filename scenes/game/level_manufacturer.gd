@@ -3,9 +3,9 @@ extends Node2D
 @onready var tilemap = $Tilemap
 
 var tiles: Dictionary  = {
-	"ground": Vector2i(0,0),
-	"bill": Vector2i(1,0),
-	"spike": Vector2i(2,0)
+	"ground": Vector2i(0,1),
+	"bill": Vector2i(1,1),
+	"spike": Vector2i(2,1)
 }
 
 func _ready() -> void:
@@ -20,3 +20,7 @@ func _ready() -> void:
 			bill.global_position = tilemap.map_to_local(cell)
 			add_child(bill)
 			tilemap.erase_cell(cell)
+			
+func _process(_delta: float):
+	if Input.is_action_just_pressed("place"):
+		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")

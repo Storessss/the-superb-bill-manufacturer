@@ -5,9 +5,12 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsojw"]
 texture = ExtResource("1_plsvb")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 2:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_57hsq"]
 physics_layer_0/collision_layer = 1

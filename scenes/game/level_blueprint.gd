@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var tilemap = $Tilemap
+@onready var selected_tile_sprite = $SelectedTileSprite
 var max: int
 var selector: int
 var category: int = 1
@@ -15,13 +16,17 @@ func _process(_delta: float) -> void:
 		if category != 0:
 			var mouse_pos = get_global_mouse_position()
 			var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category - 1))
+			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category))
 		else:
 			if selector == 0:
 				GlobalVariables.level = save_level()
 				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
 			elif selector == 1:
-				print(save_level())
+				print(Marshalls.utf8_to_base64(save_level()))
+	elif Input.is_action_pressed("remove"):
+		var mouse_pos = get_global_mouse_position()
+		var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
+		tilemap.erase_cell(tile_mouse_pos)
 		
 	if Input.is_action_just_pressed("next_tile"):
 		selector += 1
@@ -36,6 +41,13 @@ func _process(_delta: float) -> void:
 		category = 0
 	elif Input.is_action_just_pressed("category1"):
 		category = 1
+		
+	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
+	var rect = source.get_tile_texture_region(Vector2i(selector, category))
+	var image: Image = source.texture.get_image()
+	var tile_image = image.get_region(rect)
+	selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
+	selected_tile_sprite.global_position = get_global_mouse_position()
 			
 func save_level():
 	var level: Dictionary[String, Array]
