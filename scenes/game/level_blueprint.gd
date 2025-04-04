@@ -19,10 +19,11 @@ func _process(_delta: float) -> void:
 			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category))
 		else:
 			if selector == 0:
-				GlobalVariables.level = save_level()
+				save_level()
 				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
 			elif selector == 1:
-				print(Marshalls.utf8_to_base64(save_level()))
+				save_level()
+				get_tree().change_scene_to_file("res://scenes/game/authentication.tscn")
 	elif Input.is_action_pressed("remove"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
@@ -50,8 +51,7 @@ func _process(_delta: float) -> void:
 	selected_tile_sprite.global_position = get_global_mouse_position()
 			
 func save_level():
-	var level: Dictionary[String, Array]
-	var level_tiles: Array[Dictionary]
+	var level_data: Array[Dictionary]
 	var used_cells = tilemap.get_used_cells()
 	for cell in used_cells:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
@@ -61,6 +61,5 @@ func save_level():
 			"atlas_x": atlas_coords.x,
 			"atlas_y": atlas_coords.y
 		}
-		level_tiles.append(level_tile)
-	level["tiles"] = level_tiles
-	return str(level)
+		level_data.append(level_tile)
+	GlobalVariables.level_data = level_data
