@@ -38,7 +38,7 @@ func redraw_tile():
 func _ready() -> void:
 	GlobalVariables.read_level_data(tilemap)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	max = GlobalVariables.get("category" + str(category) + "_max")
 	
 	if Input.is_action_pressed("place"):
@@ -82,6 +82,9 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("rotate"):
 		rotate_tile()
+		
+	var direction = Input.get_vector("left", "right", "up", "down")
+	$Camera2D.position += direction * 300 * delta
 			
 func save_level():
 	var level_data: Dictionary

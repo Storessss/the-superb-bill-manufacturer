@@ -12,3 +12,8 @@ func read_level_data(tilemap: TileMapLayer):
 		for level_tile in level_tiles:
 			tilemap.set_cell(Vector2i(level_tile["pos_x"], level_tile["pos_y"]), 0, \
 			Vector2i(level_tile["atlas_x"], level_tile["atlas_y"]), level_tile["rot"])
+			
+func _process(_delta: float) -> void:
+	if get_tree().get_nodes_in_group("players").is_empty():
+		if get_tree().current_scene.name == "LevelManufacturer":
+			get_tree().reload_current_scene()

@@ -16,9 +16,14 @@ func _ready() -> void:
 	for cell in used_cells:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
 		if atlas_coords == tiles["bill"]:
-			var bill = preload("res://scenes/players/bill.tscn").instantiate()
-			bill.global_position = tilemap.map_to_local(cell)
-			add_child(bill)
+			var tile = preload("res://scenes/players/bill.tscn").instantiate()
+			tile.global_position = tilemap.map_to_local(cell)
+			add_child(tile)
+			tilemap.erase_cell(cell)
+		elif atlas_coords == tiles["spike"]:
+			var tile = preload("res://scenes/tiles/spike.tscn").instantiate()
+			tile.global_position = tilemap.map_to_local(cell)
+			add_child(tile)
 			tilemap.erase_cell(cell)
 			
 func _process(_delta: float):
