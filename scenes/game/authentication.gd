@@ -7,7 +7,8 @@ func _ready():
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
 
 func register():
-	var url = "http://localhost:8000/api/register"
+	#var url = "http://localhost:8000/api/register"
+	var url = "https://yellow-yellow-bird.fun/api/register"
 	var headers = ["Content-Type: application/json"]
 	var body = {
 		"name": %RegisterUsername.text,
@@ -20,7 +21,8 @@ func register():
 	http_request.request(url, headers, HTTPClient.METHOD_POST, json_body)
 	
 func login():
-	var url = "http://localhost:8000/api/login"
+	#var url = "http://localhost:8000/api/login"
+	var url = "https://yellow-yellow-bird.fun/api/login"
 	var headers = ["Content-Type: application/json"]
 	var body = {
 		"email": %LoginEmail.text,
@@ -42,7 +44,7 @@ func _on_request_completed(result, response_code, headers, body):
 	
 	if response_code == 200:
 		%StateLabel.text = str(response.get("message", "No message"))
-		if str(response.get("token", null)):
+		if response.has("token") and response.get("token") != null:
 			GlobalVariables.token = response.get("token")
 			get_tree().change_scene_to_file("res://scenes/game/save_level.tscn")
 	elif response_code == 422:

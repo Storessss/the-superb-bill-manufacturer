@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dbub7tbyi1oae"]
+[gd_scene load_steps=2 format=3 uid="uid://dbub7tbyi1oae"]
+
+[ext_resource type="AudioStream" uid="uid://7he7oot14qkt" path="res://sounds/death_noise.wav" id="1_plyga"]
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -8,3 +10,10 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="ResetTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_plyga")
+volume_db = 2.0

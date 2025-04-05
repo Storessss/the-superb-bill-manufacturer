@@ -8,14 +8,15 @@ func _ready():
 	
 	
 func save_level():
-	var url = "http://localhost:8000/api/save-level"
+	#var url = "http://localhost:8000/api/save-level"
+	var url = "https://yellow-yellow-bird.fun/api/save-level"
 	var headers = [
 		"Content-Type: application/json",
 		 "Authorization: Bearer " + GlobalVariables.token
 	]
 	var body = {
 		"level_name": %LevelName.text,
-		"level_data": GlobalVariables.level_data
+		"level_data": JSON.stringify(GlobalVariables.level_data)
 	}
 	var json_body = JSON.stringify(body)
 

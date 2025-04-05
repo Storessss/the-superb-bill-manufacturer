@@ -45,6 +45,7 @@ animations = [{
 size = Vector2(10, 15)
 
 [node name="Bill" instance=ExtResource("1_8ykyx")]
+modulate = Color(1.5, 1.5, 1.5, 1)
 script = ExtResource("2_xaaex")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
