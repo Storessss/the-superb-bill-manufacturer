@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
 			elif selector == 1:
 				save_level()
+				print(GlobalVariables.level_data)
 				get_tree().change_scene_to_file("res://scenes/game/authentication.tscn")
 	elif Input.is_action_pressed("remove"):
 		var mouse_pos = get_global_mouse_position()

@@ -1,6 +1,7 @@
 extends Node
 
 var level_data: Array[Dictionary]
+var token: String
 
 var category0_max: int = 1
 var category1_max: int = 2
