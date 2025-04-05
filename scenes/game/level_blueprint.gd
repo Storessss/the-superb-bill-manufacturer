@@ -93,6 +93,7 @@ func save_level():
 	for cell in used_cells:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
 		var tile_rotation = tilemap.get_cell_alternative_tile(cell)
+		print(tile_rotation)
 		var level_tile: Dictionary[String, int] = {
 			"pos_x": cell.x,
 			"pos_y": cell.y,

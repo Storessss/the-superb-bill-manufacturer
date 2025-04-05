@@ -15,17 +15,26 @@ func _ready() -> void:
 	
 	for cell in used_cells:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
+		var tile
+		var tile_rotation = tilemap.get_cell_alternative_tile(cell)
 		if atlas_coords == tiles["bill"]:
-			var tile = preload("res://scenes/players/bill.tscn").instantiate()
-			tile.global_position = tilemap.map_to_local(cell)
-			add_child(tile)
-			tilemap.erase_cell(cell)
+			tile = preload("res://scenes/players/bill.tscn").instantiate()
 		elif atlas_coords == tiles["spike"]:
-			var tile = preload("res://scenes/tiles/spike.tscn").instantiate()
+			tile = preload("res://scenes/tiles/spike.tscn").instantiate()
+			
+		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)
+			if tile_rotation == 0:
+				tile.rotation = deg_to_rad(0)
+			elif tile_rotation == 20480:
+				tile.rotation = deg_to_rad(90)
+			elif tile_rotation == 12288:
+				tile.rotation = deg_to_rad(180)
+			elif tile_rotation == 24576:
+				tile.rotation = deg_to_rad(270)
 			add_child(tile)
 			tilemap.erase_cell(cell)
-			
+		
 func _process(_delta: float):
 	if Input.is_action_just_pressed("place"):
 		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")

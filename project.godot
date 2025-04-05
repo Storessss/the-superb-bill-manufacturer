@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Superb Bill Manufacturer"
-run/main_scene="uid://tjt5idwh0g6n"
+run/main_scene="uid://b82itdljclfjf"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
