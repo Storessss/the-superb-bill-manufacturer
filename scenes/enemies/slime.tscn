@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq368gl5x8suq"]
+
+[ext_resource type="PackedScene" uid="uid://blbyfhvh0tsg5" path="res://scenes/enemies/enemy.tscn" id="1_ahq63"]
+[ext_resource type="Texture2D" uid="uid://drshpuvvcf17a" path="res://sprites/slime.png" id="2_4h4y0"]
+[ext_resource type="Script" uid="uid://bwguuohy5jbjq" path="res://scenes/enemies/slime.gd" id="2_b58ev"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b58ev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4h4y0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahq63"]
+size = Vector2(10, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h4y0"]
+size = Vector2(10, 7)
+
+[node name="Slime" instance=ExtResource("1_ahq63")]
+script = ExtResource("2_b58ev")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_b58ev")
+animation = &"walk"
+
+[node name="CollisionShape2D" parent="DamageArea" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ahq63")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4h4y0")

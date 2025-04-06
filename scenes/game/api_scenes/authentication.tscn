@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqgyrikoveyf7"]
 
-[ext_resource type="Script" uid="uid://mc1m8j7bmtjr" path="res://scenes/game/authentication.gd" id="1_7h3i4"]
+[ext_resource type="Script" uid="uid://mc1m8j7bmtjr" path="res://scenes/game/api_scenes/authentication.gd" id="1_7h3i4"]
 
 [node name="Authentication" type="Control"]
 layout_mode = 3

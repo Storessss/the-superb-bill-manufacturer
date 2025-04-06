@@ -20,6 +20,7 @@ func jump():
 var can_jump: bool
 var jump_buffer: bool
 
+var can_die: bool = true
 var death_particles_scene = preload("res://scenes/particles/death_particles.tscn")
 
 func _physics_process(delta):
@@ -64,13 +65,14 @@ func _physics_process(delta):
 			die()
 		
 func die():
-	var particles = death_particles_scene.instantiate()
-	particles.global_position = global_position
-	get_tree().current_scene.add_child(particles)
-	if $AnimatedSprite2D != null:
+	if can_die:
+		can_die = false
+		var particles = death_particles_scene.instantiate()
+		particles.global_position = global_position
+		get_tree().current_scene.add_child(particles)
 		$AnimatedSprite2D.queue_free()
-	$ResetTimer.start()
-	$DeathSound.play()
+		$ResetTimer.start()
+		$DeathSound.play()
 
 func _ready() -> void:
 	$ResetTimer.connect("timeout", Callable(self, "_on_reset_timer_timeout"))

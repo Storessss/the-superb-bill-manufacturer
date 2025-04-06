@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b42v8vnhencjj"]
+[gd_scene load_steps=2 format=3 uid="uid://ghi2jq7gpdx0"]
 
-[ext_resource type="Script" uid="uid://beeaenan04fyn" path="res://scenes/game/game_menu.gd" id="1_r32m2"]
+[ext_resource type="Script" uid="uid://cosjxt4ra2aiy" path="res://scenes/game/api_scenes/save_level.gd" id="1_wd2id"]
 
-[node name="GameMenu" type="Control"]
+[node name="SaveLevel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_r32m2")
+script = ExtResource("1_wd2id")
 
 [node name="Hbox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -26,11 +26,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="SignUp" type="VBoxContainer" parent="Hbox"]
+[node name="Input" type="VBoxContainer" parent="Hbox"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 
-[node name="RandomLevelButton" type="Button" parent="Hbox/SignUp"]
+[node name="LevelName" type="LineEdit" parent="Hbox/Input"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Level Name"
+
+[node name="SaveLevelButton" type="Button" parent="Hbox/Input"]
 layout_mode = 2
 text = "Save Level"
 
@@ -79,6 +84,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Done"
 
-[connection signal="pressed" from="Hbox/SignUp/RandomLevelButton" to="." method="_on_random_level_button_pressed"]
+[connection signal="pressed" from="Hbox/Input/SaveLevelButton" to="." method="_on_save_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/CopyCode" to="." method="_on_copy_code_pressed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

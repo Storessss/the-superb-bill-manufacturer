@@ -2,15 +2,6 @@ extends Node2D
 
 @onready var tilemap = $Tilemap
 
-var tiles: Dictionary  = {
-	"ground": Vector2i(0,1),
-	"bill": Vector2i(0,2),
-	"spike": Vector2i(0,3),
-	"cannon": Vector2i(1,3),
-	"slime": Vector2i(0,4),
-	"spawner": Vector2i(0,5)
-}
-
 func _ready() -> void:
 	GlobalVariables.read_level_data(tilemap)
 	
@@ -20,10 +11,12 @@ func _ready() -> void:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
 		var tile
 		var tile_rotation = tilemap.get_cell_alternative_tile(cell)
-		if atlas_coords == tiles["bill"]:
+		if atlas_coords == GlobalVariables.tiles["bill"]:
 			tile = preload("res://scenes/players/bill.tscn").instantiate()
-		elif atlas_coords == tiles["spike"]:
+		elif atlas_coords == GlobalVariables.tiles["spike"]:
 			tile = preload("res://scenes/tiles/spike.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["slime"]:
+			tile = preload("res://scenes/enemies/slime.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)
