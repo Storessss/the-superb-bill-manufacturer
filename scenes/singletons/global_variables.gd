@@ -4,7 +4,11 @@ var level_data: Dictionary
 var token: String
 
 var category0_max: int = 1
-var category1_max: int = 2
+var category1_max: int = 12
+var category2_max: int = 0
+var category3_max: int = 1
+var category4_max: int = 0
+var category5_max: int = 0
 
 func read_level_data(tilemap: TileMapLayer):
 	if level_data:

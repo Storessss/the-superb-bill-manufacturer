@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkygaaimjy0jl"]
+
+[ext_resource type="Texture2D" uid="uid://drshpuvvcf17a" path="res://sprites/slime.png" id="1_0gbm6"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="2_8gdx6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cifjl"]
+atlas = ExtResource("2_8gdx6")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gdx6"]
+atlas = ExtResource("2_8gdx6")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mvtv"]
+atlas = ExtResource("2_8gdx6")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npuac"]
+atlas = ExtResource("2_8gdx6")
+region = Rect2(96, 16, 16, 16)
+
+[node name="PropertySetter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Select Enemy"
+popup/item_0/id = 0
+popup/item_1/text = "Slime"
+popup/item_1/icon = ExtResource("1_0gbm6")
+popup/item_1/id = 1
+
+[node name="Group" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "Select Group"
+popup/item_0/id = 0
+popup/item_1/text = "Yellow"
+popup/item_1/icon = SubResource("AtlasTexture_cifjl")
+popup/item_1/id = 1
+popup/item_2/text = "Red"
+popup/item_2/icon = SubResource("AtlasTexture_8gdx6")
+popup/item_2/id = 2
+popup/item_3/text = "Blue"
+popup/item_3/icon = SubResource("AtlasTexture_0mvtv")
+popup/item_3/id = 3
+popup/item_4/text = "Green"
+popup/item_4/icon = SubResource("AtlasTexture_npuac")
+popup/item_4/id = 4
+
+[node name="Text" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+placeholder_text = "Insert Text"

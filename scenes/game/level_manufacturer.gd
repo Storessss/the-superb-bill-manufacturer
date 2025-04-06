@@ -4,8 +4,11 @@ extends Node2D
 
 var tiles: Dictionary  = {
 	"ground": Vector2i(0,1),
-	"bill": Vector2i(1,1),
-	"spike": Vector2i(2,1)
+	"bill": Vector2i(0,2),
+	"spike": Vector2i(0,3),
+	"cannon": Vector2i(1,3),
+	"slime": Vector2i(0,4),
+	"spawner": Vector2i(0,5)
 }
 
 func _ready() -> void:

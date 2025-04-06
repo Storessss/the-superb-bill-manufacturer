@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		if category != 0:
 			var mouse_pos = get_global_mouse_position()
 			var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category))
+			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category ))
 		else:
 			if selector == 0:
 				save_level()
@@ -68,10 +68,24 @@ func _process(delta: float) -> void:
 		if selector < 0:
 			selector = max
 			
-	if Input.is_action_just_pressed("category0"):
+	if Input.is_action_just_pressed("category1"):
 		category = 0
-	elif Input.is_action_just_pressed("category1"):
+		selector = 0
+	elif Input.is_action_just_pressed("category2"):
 		category = 1
+		selector = 0
+	elif Input.is_action_just_pressed("category3"):
+		category = 2
+		selector = 0
+	elif Input.is_action_just_pressed("category4"):
+		category = 3
+		selector = 0
+	elif Input.is_action_just_pressed("category5"):
+		category = 4
+		selector = 0
+	elif Input.is_action_just_pressed("category6"):
+		category = 5
+		selector = 0
 		
 	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
 	var rect = source.get_tile_texture_region(Vector2i(selector, category))
@@ -93,7 +107,6 @@ func save_level():
 	for cell in used_cells:
 		var atlas_coords = tilemap.get_cell_atlas_coords(cell)
 		var tile_rotation = tilemap.get_cell_alternative_tile(cell)
-		print(tile_rotation)
 		var level_tile: Dictionary[String, int] = {
 			"pos_x": cell.x,
 			"pos_y": cell.y,

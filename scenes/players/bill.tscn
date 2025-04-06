@@ -47,6 +47,9 @@ size = Vector2(10, 15)
 [node name="Bill" instance=ExtResource("1_8ykyx")]
 modulate = Color(1.5, 1.5, 1.5, 1)
 script = ExtResource("2_xaaex")
+jump_height = 100.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xaaex")

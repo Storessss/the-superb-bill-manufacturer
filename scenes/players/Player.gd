@@ -3,7 +3,20 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: int = 200
-@export var jump_velocity: int = -400
+
+@export var jump_height: float
+@export var jump_time_to_peak: float
+@export var jump_time_to_descent: float
+
+@onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+@onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+@onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
+func _get_gravity() -> float:
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
+func jump():
+	velocity.y = jump_velocity
+
 var can_jump: bool
 var jump_buffer: bool
 
@@ -11,19 +24,23 @@ var death_particles_scene = preload("res://scenes/particles/death_particles.tscn
 
 func _physics_process(delta):
 	if $ResetTimer.is_stopped():
+		
 		if not is_on_floor():
-			velocity += get_gravity() * delta
+			velocity.y += _get_gravity() * delta
 			$AnimatedSprite2D.play("jump")
 		else:
 			if jump_buffer:
-				velocity.y = jump_velocity
+				jump()
 				
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor() or not $CoyoteTimer.is_stopped():
-				velocity.y = jump_velocity
+				jump()
 			else:
 				jump_buffer = true
 				$JumpBuffer.start()
+				
+		if Input.is_action_just_released("jump"):
+			velocity.y = 0
 
 		var direction = Input.get_axis("left", "right")
 		if direction:
