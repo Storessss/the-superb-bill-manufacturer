@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://blbyfhvh0tsg5"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
-[node name="DamageArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -22,6 +22,7 @@ GlobalVariables="*res://scenes/singletons/global_variables.gd"
 [global_group]
 
 players=""
+enemies=""
 
 [input]
 

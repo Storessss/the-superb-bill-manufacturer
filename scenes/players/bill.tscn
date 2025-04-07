@@ -46,8 +46,6 @@ size = Vector2(8, 14)
 
 [node name="Bill" instance=ExtResource("1_8ykyx")]
 modulate = Color(1.5, 1.5, 1.5, 1)
-collision_layer = 1
-collision_mask = 1
 script = ExtResource("2_xaaex")
 jump_height = 100.0
 jump_time_to_peak = 0.5

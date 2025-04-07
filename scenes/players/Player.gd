@@ -63,6 +63,15 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_pressed("rotate"):
 			die()
+			
+		for i in range (get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var normal = collision.get_normal()
+			var body = collision.get_collider()
+			if body and body.is_in_group("enemies"):
+				if normal == Vector2.UP:
+					jump()
+					body.queue_free()
 		
 func die():
 	if can_die:
