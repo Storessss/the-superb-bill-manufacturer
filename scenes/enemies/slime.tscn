@@ -15,8 +15,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b58ev"]
-size = Vector2(14, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h4y0"]
+size = Vector2(10, 9)
 
 [node name="Slime" instance=ExtResource("1_ahq63")]
 script = ExtResource("2_b58ev")
@@ -26,9 +26,9 @@ position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_b58ev")
 animation = &"walk"
 
-[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_b58ev")
+shape = SubResource("RectangleShape2D_4h4y0")
 
 [node name="JumpTimer" type="Timer" parent="." index="2"]
 wait_time = 2.5

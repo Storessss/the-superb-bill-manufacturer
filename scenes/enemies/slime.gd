@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var can_die: bool = true
+var death_particles_scene = preload("res://scenes/particles/death_particles.tscn")
 
 func _physics_process(delta):
 	for i in range (get_slide_collision_count()):
@@ -30,3 +32,12 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
+	
+func die():
+	if can_die:
+		can_die = false
+		var particles = death_particles_scene.instantiate()
+		particles.color = Color.GREEN
+		particles.global_position = global_position
+		get_tree().current_scene.add_child(particles)
+		queue_free()

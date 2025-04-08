@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var tilemap = $Tilemap
 
+var no_players_reload: bool = true
+
 func _ready() -> void:
 	GlobalVariables.read_level_data(tilemap)
 	
@@ -32,5 +34,13 @@ func _ready() -> void:
 			tilemap.erase_cell(cell)
 		
 func _process(_delta: float):
+	if no_players_reload:
+		no_players_reload = false
+		if get_tree().get_nodes_in_group("players").is_empty():
+			get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
 	if Input.is_action_just_pressed("place"):
 		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+	if get_tree():
+		if get_tree().get_nodes_in_group("players").is_empty():
+			get_tree().reload_current_scene()
+			

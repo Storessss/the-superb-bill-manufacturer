@@ -71,7 +71,7 @@ func _physics_process(delta):
 			if body and body.is_in_group("enemies"):
 				if normal == Vector2.UP:
 					jump()
-					body.queue_free()
+					body.die()
 		
 func die():
 	if can_die:
