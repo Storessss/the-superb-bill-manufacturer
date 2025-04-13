@@ -8,8 +8,15 @@ func _ready():
 	
 	
 func get_random_level():
-	#var url = "http://localhost:8000/api/get-random-level"
-	var url = "https://yellow-yellow-bird.fun/api/get-random-level"
+	#var url = "http://localhost:8000/api/get-random-tsbm-level"
+	var url = "https://yellow-yellow-bird.fun/api/get-random-tsbm-level"
+	var headers = ["Content-Type: application/json"]
+
+	http_request.request(url, headers, HTTPClient.METHOD_GET)
+	
+func get_level_by_code():
+	#var url = "http://localhost:8000/api/get-tsbm-level-by-code"
+	var url = "https://yellow-yellow-bird.fun/api/get-tsbm-level-by-code"
 	var headers = ["Content-Type: application/json"]
 
 	http_request.request(url, headers, HTTPClient.METHOD_GET)

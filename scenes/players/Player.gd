@@ -40,7 +40,7 @@ func _physics_process(delta):
 				jump_buffer = true
 				$JumpBuffer.start()
 				
-		if Input.is_action_just_released("jump"):
+		if Input.is_action_just_released("jump") and velocity.y < 0:
 			velocity.y = 0
 
 		var direction = Input.get_axis("left", "right")
