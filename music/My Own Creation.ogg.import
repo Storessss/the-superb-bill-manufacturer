@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8t5lyu1b77js"
+path="res://.godot/imported/My Own Creation.ogg-fa823e2133de1952885b6b17bb17595b.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/My Own Creation.ogg"
+dest_files=["res://.godot/imported/My Own Creation.ogg-fa823e2133de1952885b6b17bb17595b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

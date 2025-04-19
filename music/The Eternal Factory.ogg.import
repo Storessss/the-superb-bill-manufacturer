@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://drnjfrlajtud4"
+path="res://.godot/imported/The Eternal Factory.ogg-1edd592bc01a9d2e2c2413542cbfe99d.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/The Eternal Factory.ogg"
+dest_files=["res://.godot/imported/The Eternal Factory.ogg-1edd592bc01a9d2e2c2413542cbfe99d.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -41,7 +41,7 @@ layout_mode = 2
 [node name="LevelCode" type="LineEdit" parent="Hbox/Output"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Code"
+placeholder_text = "Code"
 
 [node name="SearchByCodeButton" type="Button" parent="Hbox/Output"]
 layout_mode = 2
@@ -63,19 +63,5 @@ offset_bottom = -145.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeleteAccountButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -31.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Delete Account and all Levels"
-
 [connection signal="pressed" from="Hbox/SignUp/RandomLevelButton" to="." method="_on_random_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/SearchByCodeButton" to="." method="_on_copy_code_pressed"]
-[connection signal="pressed" from="DeleteAccountButton" to="." method="_on_done_pressed"]

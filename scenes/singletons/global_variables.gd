@@ -26,6 +26,19 @@ func read_level_data(tilemap: TileMapLayer):
 			tilemap.set_cell(Vector2i(level_tile["pos_x"], level_tile["pos_y"]), 0, \
 			Vector2i(level_tile["atlas_x"], level_tile["atlas_y"]), level_tile["rot"])
 			
-func _physics_process(delta: float) -> void:
-	if get_tree().current_scene:
-		print(get_tree().current_scene.name)
+var music_player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+var previous_scene_name: String
+var current_scene_name: String
+func _ready() -> void:
+	music_player.max_distance = 999999999
+	music_player.attenuation = 0
+	add_child(music_player)
+func _process(delta: float) -> void:
+	current_scene_name = get_tree().current_scene.name
+	if current_scene_name != previous_scene_name:
+		previous_scene_name = current_scene_name
+		if current_scene_name == "LevelBlueprint":
+			music_player.stream = preload("res://music/The Eternal Factory.ogg")
+		elif current_scene_name == "LevelManufacturer":
+			music_player.stream = preload("res://music/My Own Creation.ogg")
+		music_player.play()

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*res://scenes/singletons/global_variables.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [global_group]
 
 players=""
