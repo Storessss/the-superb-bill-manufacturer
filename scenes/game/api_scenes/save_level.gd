@@ -12,8 +12,7 @@ func save_level():
 	var url = "https://yellow-yellow-bird.fun/api/save-tsbm-level"
 	var headers = [
 		"Content-Type: application/json",
-		"Accept: application/json",
-		 "Authorization: Bearer " + GlobalVariables.token
+		"Accept: application/json"
 	]
 	var body = {
 		"level_name": %LevelName.text,
@@ -28,9 +27,6 @@ func _on_save_level_button_pressed():
 
 func _on_copy_code_pressed():
 	DisplayServer.clipboard_set(%LevelCode.text)
-
-func _on_done_pressed():
-	print("ok")
 	
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -44,13 +40,19 @@ func _on_request_completed(result, response_code, headers, body):
 	
 	if response_code == 200:
 		%StateLabel.text = str(response.get("message", "No message"))
+		%SaveLevelButton.visible = false
+		%ReturnToLevelBuilder.visible = false
+		%LevelCode.text = response.get("level_code")
 	elif response_code == 422:
 		var errors = response.get("errors", {})
 		var error_text = str(response.get("message", "No message")) + "\n"
 		for field in errors.keys():
 			error_text += field + ": " + str(errors[field][0]) + "\n"
 		%StateLabel.text = error_text
-	elif response_code == 401:
-		%StateLabel.text = str(response.get("message", "No message"))
 	else:
 		%StateLabel.text = "Unexpected error. Code: " + str(response_code)
+
+func _on_return_to_level_builder_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+func _on_return_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")

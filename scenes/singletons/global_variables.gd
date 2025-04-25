@@ -1,7 +1,8 @@
 extends Node
 
+var level_name: String
 var level_data: Dictionary
-var token: String
+var level_code: String
 
 var category0_max: int = 1
 var category1_max: int = 12
@@ -34,11 +35,15 @@ func _ready() -> void:
 	music_player.attenuation = 0
 	add_child(music_player)
 func _process(delta: float) -> void:
-	current_scene_name = get_tree().current_scene.name
-	if current_scene_name != previous_scene_name:
-		previous_scene_name = current_scene_name
-		if current_scene_name == "LevelBlueprint":
-			music_player.stream = preload("res://music/The Eternal Factory.ogg")
-		elif current_scene_name == "LevelManufacturer":
-			music_player.stream = preload("res://music/My Own Creation.ogg")
-		music_player.play()
+	if get_tree().current_scene:
+		current_scene_name = get_tree().current_scene.name
+		if current_scene_name != previous_scene_name:
+			previous_scene_name = current_scene_name
+			if current_scene_name == "LevelBlueprint":
+				music_player.stream = preload("res://music/The Eternal Factory.ogg")
+				music_player.play()
+			elif current_scene_name == "LevelManufacturer":
+				music_player.stream = preload("res://music/My Own Creation.ogg")
+				music_player.play()
+			else:
+				music_player.stop()

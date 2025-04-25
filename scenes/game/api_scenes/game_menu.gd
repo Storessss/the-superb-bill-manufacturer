@@ -10,14 +10,20 @@ func _ready():
 func get_random_level():
 	#var url = "http://localhost:8000/api/get-random-tsbm-level"
 	var url = "https://yellow-yellow-bird.fun/api/get-random-tsbm-level"
-	var headers = ["Content-Type: application/json"]
+	var headers = [
+		"Content-Type: application/json",
+		"Accept: application/json"
+	]
 
 	http_request.request(url, headers, HTTPClient.METHOD_GET)
 	
 func get_level_by_code():
 	#var url = "http://localhost:8000/api/get-tsbm-level-by-code"
-	var url = "https://yellow-yellow-bird.fun/api/get-tsbm-level-by-code"
-	var headers = ["Content-Type: application/json"]
+	var url = "https://yellow-yellow-bird.fun/api/get-tsbm-level-by-code/" + %LevelCode.text
+	var headers = [
+		"Content-Type: application/json",
+		"Accept: application/json"
+	]
 
 	http_request.request(url, headers, HTTPClient.METHOD_GET)
 	
@@ -33,7 +39,9 @@ func _on_request_completed(result, response_code, headers, body):
 	
 	if response_code == 200:
 		%StateLabel.text = str(response.get("message", "No message"))
+		GlobalVariables.level_name = response.get("level_name")
 		GlobalVariables.level_data = JSON.parse_string(response.get("level_data"))
+		GlobalVariables.level_code = response.get("level_code")
 		get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
 	elif response_code == 404:
 		%StateLabel.text = str(response.get("message", "No message"))
@@ -42,3 +50,9 @@ func _on_request_completed(result, response_code, headers, body):
 
 func _on_random_level_button_pressed():
 	get_random_level()
+
+func _on_search_by_code_button_pressed() -> void:
+	get_level_by_code()
+
+func _on_create_level_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")

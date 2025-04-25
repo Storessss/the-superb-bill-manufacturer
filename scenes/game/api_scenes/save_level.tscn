@@ -36,6 +36,7 @@ layout_mode = 2
 placeholder_text = "Level Name"
 
 [node name="SaveLevelButton" type="Button" parent="Hbox/Input"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Save Level"
 
@@ -67,23 +68,34 @@ offset_right = 125.0
 offset_bottom = -145.5
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_alignment = 1
 
-[node name="Done" type="Button" parent="."]
-visible = false
+[node name="ReturnToLevelBuilder" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -15.5
-offset_right = 125.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Done"
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 250.0
+grow_vertical = 0
+text = "Return To Level Builder"
+
+[node name="ReturnToMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return To Menu
+"
 
 [connection signal="pressed" from="Hbox/Input/SaveLevelButton" to="." method="_on_save_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/CopyCode" to="." method="_on_copy_code_pressed"]
-[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="ReturnToLevelBuilder" to="." method="_on_return_to_level_builder_pressed"]
+[connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

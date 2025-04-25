@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 			elif selector == 1:
 				save_level()
 				print(GlobalVariables.level_data)
-				get_tree().change_scene_to_file("res://scenes/game/authentication.tscn")
+				get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
 	elif Input.is_action_pressed("remove"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
