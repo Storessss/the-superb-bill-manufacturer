@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtb6auae5kjvu"]
+
+[ext_resource type="Script" uid="uid://6b4ordrmckyy" path="res://scenes/tiles/cannon.gd" id="1_morjx"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="2_owfmj"]
+[ext_resource type="AudioStream" uid="uid://cdmxlklrf4aqr" path="res://sounds/cannon_shoot.wav" id="3_owfmj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01kar"]
+atlas = ExtResource("2_owfmj")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owfmj"]
+size = Vector2(16, 16)
+
+[node name="Cannon" type="StaticBody2D"]
+script = ExtResource("1_morjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_01kar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_owfmj")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_owfmj")
+volume_db = -3.0
+
+[node name="CastPoint" type="Node2D" parent="."]
+position = Vector2(0, -5)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

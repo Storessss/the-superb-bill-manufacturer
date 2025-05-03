@@ -47,3 +47,24 @@ func _process(delta: float) -> void:
 				music_player.play()
 			else:
 				music_player.stop()
+				
+	for player: AudioStreamPlayer2D in sound_players:
+		if not player.playing:
+			player.queue_free()
+			sound_players.erase(player)
+				
+				
+var sound_players: Array
+
+func new_sound_player(db: int = 0) -> AudioStreamPlayer2D:
+	var sound_player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+	sound_player.bus = "Sounds"
+	sound_player.volume_db = db
+	add_child(sound_player)
+	sound_players.append(sound_player)
+	return sound_player
+	
+func bullet_hit_wall() -> void:
+	var sound_player = new_sound_player(0)
+	sound_player.stream = preload("res://sounds/bullet_wall_hit.wav")
+	sound_player.play()

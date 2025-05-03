@@ -19,6 +19,8 @@ func _ready() -> void:
 			tile = preload("res://scenes/tiles/spike.tscn").instantiate()
 		elif atlas_coords == GlobalVariables.tiles["slime"]:
 			tile = preload("res://scenes/enemies/slime.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["cannon"]:
+			tile = preload("res://scenes/tiles/cannon.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)

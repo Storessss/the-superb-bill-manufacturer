@@ -16,6 +16,7 @@ func _get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 func jump():
 	velocity.y = jump_velocity
+	$JumpSound.play()
 
 var can_jump: bool
 var jump_buffer: bool
