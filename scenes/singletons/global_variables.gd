@@ -4,6 +4,7 @@ var level_name: String
 var level_data: Dictionary
 var level_code: String
 
+var max_categories: int = 8
 var category0_max: int = 1
 var category1_max: int = 12
 var category2_max: int = 1

@@ -5,6 +5,8 @@ extends Node2D
 var max: int
 var selector: int
 var category: int = 1
+var erase_on: bool
+var rotate_on: bool
 
 var flip_h := TileSetAtlasSource.TRANSFORM_FLIP_H
 var flip_v := TileSetAtlasSource.TRANSFORM_FLIP_V
@@ -37,7 +39,7 @@ func redraw_tile():
 
 func _ready() -> void:
 	GlobalVariables.read_level_data(tilemap)
-	for i in range(8):
+	for i in range(GlobalVariables.max_categories):
 		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
 		var rect = source.get_tile_texture_region(Vector2i(0, i))
 		var image: Image = source.texture.get_image()
@@ -74,51 +76,27 @@ func _process(delta: float) -> void:
 	max = GlobalVariables.get("category" + str(category) + "_max")
 	
 	if Input.is_action_pressed("place"):
+		print(category, selector)
 		if get_viewport().get_mouse_position().y < $Hud/ColorRect.global_position.y:
-			if category != 0:
+			if not erase_on and not rotate_on:
+				if category != 0:
+					var mouse_pos = get_global_mouse_position()
+					var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
+					tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category))
+				else:
+					if selector == 0:
+						save_level()
+						get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+					elif selector == 1:
+						save_level()
+						print(GlobalVariables.level_data)
+						get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
+			elif erase_on:
 				var mouse_pos = get_global_mouse_position()
 				var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-				tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category ))
-			else:
-				if selector == 0:
-					save_level()
-					get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
-				elif selector == 1:
-					save_level()
-					print(GlobalVariables.level_data)
-					get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
-	elif Input.is_action_pressed("remove"):
-		var mouse_pos = get_global_mouse_position()
-		var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-		tilemap.erase_cell(tile_mouse_pos)
-		
-	if Input.is_action_just_pressed("next_tile"):
-		selector += 1
-		if selector > max:
-			selector = 0
-	elif Input.is_action_just_pressed("previous_tile"):
-		selector -= 1
-		if selector < 0:
-			selector = max
-			
-	if Input.is_action_just_pressed("category1"):
-		category = 0
-		selector = 0
-	elif Input.is_action_just_pressed("category2"):
-		category = 1
-		selector = 0
-	elif Input.is_action_just_pressed("category3"):
-		category = 2
-		selector = 0
-	elif Input.is_action_just_pressed("category4"):
-		category = 3
-		selector = 0
-	elif Input.is_action_just_pressed("category5"):
-		category = 4
-		selector = 0
-	elif Input.is_action_just_pressed("category6"):
-		category = 5
-		selector = 0
+				tilemap.erase_cell(tile_mouse_pos)
+			elif Input.is_action_just_pressed("place") and not erase_on and rotate_on:
+				rotate_tile()
 		
 	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
 	var rect = source.get_tile_texture_region(Vector2i(selector, category))
@@ -126,9 +104,6 @@ func _process(delta: float) -> void:
 	var tile_image = image.get_region(rect)
 	selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
 	selected_tile_sprite.global_position = get_global_mouse_position()
-	
-	if Input.is_action_just_pressed("rotate"):
-		rotate_tile()
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	$Camera2D.position += direction * 300 * delta
@@ -150,3 +125,17 @@ func save_level():
 		level_tiles.append(level_tile)
 	level_data["tiles"] = level_tiles
 	GlobalVariables.level_data = level_data
+
+func _on_erase_pressed() -> void:
+	erase_on = not erase_on
+	if erase_on:
+		$Hud/Erase.texture_normal = preload("res://sprites/erase_on.png")
+	else:
+		$Hud/Erase.texture_normal = preload("res://sprites/erase_off.png")
+
+func _on_rotate_pressed() -> void:
+	rotate_on = not rotate_on
+	if rotate_on:
+		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_on.png")
+	else:
+		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_off.png")
