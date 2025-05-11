@@ -6,10 +6,12 @@ var level_code: String
 
 var category0_max: int = 1
 var category1_max: int = 12
-var category2_max: int = 0
+var category2_max: int = 1
 var category3_max: int = 1
 var category4_max: int = 0
-var category5_max: int = 0
+var category5_max: int = 1
+var category6_max: int = 3
+var category7_max: int = 1
 
 var tiles: Dictionary  = {
 	"ground": Vector2i(0,1),

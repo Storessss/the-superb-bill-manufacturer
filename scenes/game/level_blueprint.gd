@@ -37,23 +37,56 @@ func redraw_tile():
 
 func _ready() -> void:
 	GlobalVariables.read_level_data(tilemap)
+	for i in range(8):
+		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
+		var rect = source.get_tile_texture_region(Vector2i(0, i))
+		var image: Image = source.texture.get_image()
+		var tile_image = image.get_region(rect)
+		var hotbar_button: TextureButton = TextureButton.new()
+		hotbar_button.texture_normal = ImageTexture.create_from_image(tile_image)
+		hotbar_button.custom_minimum_size = Vector2(40, 40)
+		hotbar_button.stretch_mode = TextureButton.STRETCH_SCALE
+		hotbar_button.set_meta("category_index", i)
+		hotbar_button.connect("pressed", Callable(self, "_on_category_hotbar_button_pressed").bind(hotbar_button))
+		$Hud/CategoryHotbar.add_child(hotbar_button)
+		
+func _on_category_hotbar_button_pressed(category_button: TextureButton) -> void:
+	for child in $Hud/TileHotbar.get_children():
+		child.queue_free()
+	category = category_button.get_meta("category_index")
+	for i in range(GlobalVariables.get("category" + str(category) + "_max") + 1):
+		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
+		var rect = source.get_tile_texture_region(Vector2i(i, category))
+		var image: Image = source.texture.get_image()
+		var tile_image = image.get_region(rect)
+		var hotbar_button: TextureButton = TextureButton.new()
+		hotbar_button.texture_normal = ImageTexture.create_from_image(tile_image)
+		hotbar_button.custom_minimum_size = Vector2(40, 40)
+		hotbar_button.stretch_mode = TextureButton.STRETCH_SCALE
+		hotbar_button.set_meta("tile_index", i)
+		hotbar_button.connect("pressed", Callable(self, "_on_tile_hotbar_button_pressed").bind(hotbar_button))
+		$Hud/TileHotbar.add_child(hotbar_button)
+		
+func _on_tile_hotbar_button_pressed(tile_button: TextureButton) -> void:
+	selector = tile_button.get_meta("tile_index")
 
 func _process(delta: float) -> void:
 	max = GlobalVariables.get("category" + str(category) + "_max")
 	
 	if Input.is_action_pressed("place"):
-		if category != 0:
-			var mouse_pos = get_global_mouse_position()
-			var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-			tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category ))
-		else:
-			if selector == 0:
-				save_level()
-				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
-			elif selector == 1:
-				save_level()
-				print(GlobalVariables.level_data)
-				get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
+		if get_viewport().get_mouse_position().y < $Hud/ColorRect.global_position.y:
+			if category != 0:
+				var mouse_pos = get_global_mouse_position()
+				var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
+				tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category ))
+			else:
+				if selector == 0:
+					save_level()
+					get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+				elif selector == 1:
+					save_level()
+					print(GlobalVariables.level_data)
+					get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
 	elif Input.is_action_pressed("remove"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
