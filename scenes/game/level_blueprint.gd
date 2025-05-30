@@ -76,34 +76,45 @@ func _process(delta: float) -> void:
 	max = GlobalVariables.get("category" + str(category) + "_max")
 	
 	if Input.is_action_pressed("place"):
-		print(category, selector)
 		if get_viewport().get_mouse_position().y < $Hud/ColorRect.global_position.y:
 			if not erase_on and not rotate_on:
 				if category != 0:
 					var mouse_pos = get_global_mouse_position()
 					var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
 					tilemap.set_cell(tile_mouse_pos, 0, Vector2i(selector, category))
-				else:
-					if selector == 0:
-						save_level()
-						get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
-					elif selector == 1:
-						save_level()
-						print(GlobalVariables.level_data)
-						get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
 			elif erase_on:
 				var mouse_pos = get_global_mouse_position()
 				var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
 				tilemap.erase_cell(tile_mouse_pos)
 			elif Input.is_action_just_pressed("place") and not erase_on and rotate_on:
 				rotate_tile()
+				
+	if Input.is_action_just_pressed("erase"):
+		switch_erase_state()
+		
+	elif Input.is_action_just_pressed("restart"):
+		switch_rotate_state()
+		
+	# TODO: Fix this
+	# TODO: Add camera movement buttons
+	# TODO: Add edit level button
+	if category == 0:
+		if Input.is_action_just_pressed("place"):
+			if selector == 0:
+				save_level()
+				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+			elif selector == 1:
+				save_level()
+				print(GlobalVariables.level_data)
+				get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
 		
 	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
-	var rect = source.get_tile_texture_region(Vector2i(selector, category))
-	var image: Image = source.texture.get_image()
-	var tile_image = image.get_region(rect)
-	selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
-	selected_tile_sprite.global_position = get_global_mouse_position()
+	if source.get_tile_texture_region(Vector2i(selector, category)):
+		var rect = source.get_tile_texture_region(Vector2i(selector, category))
+		var image: Image = source.texture.get_image()
+		var tile_image = image.get_region(rect)
+		selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
+		selected_tile_sprite.global_position = get_global_mouse_position()
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	$Camera2D.position += direction * 300 * delta
@@ -127,13 +138,18 @@ func save_level():
 	GlobalVariables.level_data = level_data
 
 func _on_erase_pressed() -> void:
+	switch_erase_state()
+func _on_rotate_pressed() -> void:
+	switch_rotate_state()
+		
+func switch_erase_state() -> void:
 	erase_on = not erase_on
 	if erase_on:
 		$Hud/Erase.texture_normal = preload("res://sprites/erase_on.png")
 	else:
 		$Hud/Erase.texture_normal = preload("res://sprites/erase_off.png")
-
-func _on_rotate_pressed() -> void:
+		
+func switch_rotate_state() -> void:
 	rotate_on = not rotate_on
 	if rotate_on:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_on.png")

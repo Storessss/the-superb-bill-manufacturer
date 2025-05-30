@@ -8,15 +8,14 @@ func _ready():
 	
 	
 func save_level():
-	#var url = "http://localhost:8000/api/save-tsbm-level"
-	var url = "https://yellow-yellow-bird.fun/api/save-tsbm-level"
+	var url = "https://stuffbystore.com/api/tsbm/save-level"
 	var headers = [
 		"Content-Type: application/json",
 		"Accept: application/json"
 	]
 	var body = {
-		"level_name": %LevelName.text,
-		"level_data": JSON.stringify(GlobalVariables.level_data)
+		"name": %LevelName.text,
+		"data": JSON.stringify(GlobalVariables.level_data)
 	}
 	var json_body = JSON.stringify(body)
 
@@ -42,7 +41,7 @@ func _on_request_completed(result, response_code, headers, body):
 		%StateLabel.text = str(response.get("message", "No message"))
 		%SaveLevelButton.visible = false
 		%ReturnToLevelBuilder.visible = false
-		%LevelCode.text = response.get("level_code")
+		%LevelCode.text = response.get("code")
 	elif response_code == 422:
 		var errors = response.get("errors", {})
 		var error_text = str(response.get("message", "No message")) + "\n"

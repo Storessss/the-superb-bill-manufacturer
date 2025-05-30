@@ -62,7 +62,7 @@ func _physics_process(delta):
 		if direction != 0:
 			$AnimatedSprite2D.flip_h = direction < 0
 			
-		if Input.is_action_just_pressed("rotate"):
+		if Input.is_action_just_pressed("restart"):
 			die()
 			
 		for i in range (get_slide_collision_count()):

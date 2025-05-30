@@ -47,6 +47,7 @@ size = Vector2(8, 14)
 [node name="Bill" instance=ExtResource("1_8ykyx")]
 modulate = Color(1.5, 1.5, 1.5, 1)
 script = ExtResource("2_xaaex")
+speed = 175
 jump_height = 80.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.45

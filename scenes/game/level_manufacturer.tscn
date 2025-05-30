@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://tjt5idwh0g6n"]
+[gd_scene load_steps=5 format=3 uid="uid://tjt5idwh0g6n"]
 
 [ext_resource type="Script" uid="uid://uhijopk07ajm" path="res://scenes/game/level_manufacturer.gd" id="1_oxrs7"]
 [ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="2_6d3ef"]
 [ext_resource type="PackedScene" uid="uid://cl0i4p3lb4mu1" path="res://scenes/game/hud.tscn" id="3_oxrs7"]
+[ext_resource type="PackedScene" uid="uid://h75jakvypfwe" path="res://scenes/game/touch_controls.tscn" id="4_wsojw"]
 
 [node name="LevelManufacturer" type="Node2D"]
 script = ExtResource("1_oxrs7")
@@ -10,3 +11,11 @@ script = ExtResource("1_oxrs7")
 [node name="Tilemap" parent="." instance=ExtResource("2_6d3ef")]
 
 [node name="Hud" parent="." instance=ExtResource("3_oxrs7")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchControls" parent="Control" instance=ExtResource("4_wsojw")]
