@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2g378wfwx63s"]
+
+[ext_resource type="Script" uid="uid://cf0i60e5ba538" path="res://falling_platform_spawner.gd" id="1_krw7k"]
+[ext_resource type="PackedScene" uid="uid://dn3fp8audcwgr" path="res://scenes/tiles/falling_platform.tscn" id="2_wq0t0"]
+
+[node name="FallingPlatformSpawner" type="Node2D"]
+script = ExtResource("1_krw7k")
+
+[node name="Platform" type="Node2D" parent="."]
+
+[node name="FallingPlatform" parent="Platform" instance=ExtResource("2_wq0t0")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

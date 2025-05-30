@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn3fp8audcwgr"]
+
+[ext_resource type="Script" uid="uid://q7vl3iqo0v2c" path="res://scenes/tiles/falling_platform.gd" id="1_dyyfq"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="2_qy5c0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01kar"]
+atlas = ExtResource("2_qy5c0")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owfmj"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyyfq"]
+size = Vector2(18, 8)
+
+[node name="FallingPlatform" type="CharacterBody2D" groups=["falling_platforms"]]
+script = ExtResource("1_dyyfq")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_01kar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_owfmj")
+one_way_collision = true
+
+[node name="FallTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dyyfq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

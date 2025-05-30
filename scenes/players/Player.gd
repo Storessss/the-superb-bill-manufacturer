@@ -69,10 +69,12 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			var normal = collision.get_normal()
 			var body = collision.get_collider()
-			if body and body.is_in_group("enemies"):
-				if normal == Vector2.UP:
+			if normal == Vector2.UP:
+				if body and body.is_in_group("enemies"):
 					jump()
 					body.die()
+				elif body.is_in_group("falling_platforms"):
+					body.activate()
 		
 func die():
 	if can_die:

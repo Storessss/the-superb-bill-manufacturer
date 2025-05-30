@@ -24,6 +24,6 @@ offset_left = -364.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Return To Menu"
+text = "Return To Menu (Level Will Be Erased Forever)"
 
 [connection signal="pressed" from="TouchControls/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
