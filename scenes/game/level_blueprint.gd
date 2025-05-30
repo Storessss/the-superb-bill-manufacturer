@@ -77,7 +77,15 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("place"):
 		if get_viewport().get_mouse_position().y < $Hud/ColorRect.global_position.y:
-			if not erase_on and not rotate_on:
+			if category == 0:
+				if selector == 0:
+					save_level()
+					get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+				elif selector == 1:
+					save_level()
+					print(GlobalVariables.level_data)
+					get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
+			elif not erase_on and not rotate_on:
 				if category != 0:
 					var mouse_pos = get_global_mouse_position()
 					var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
@@ -94,19 +102,6 @@ func _process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("restart"):
 		switch_rotate_state()
-		
-	# TODO: Fix this
-	# TODO: Add camera movement buttons
-	# TODO: Add edit level button
-	if category == 0:
-		if Input.is_action_just_pressed("place"):
-			if selector == 0:
-				save_level()
-				get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
-			elif selector == 1:
-				save_level()
-				print(GlobalVariables.level_data)
-				get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
 		
 	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
 	if source.get_tile_texture_region(Vector2i(selector, category)):
@@ -155,3 +150,7 @@ func switch_rotate_state() -> void:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_on.png")
 	else:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_off.png")
+
+func _on_return_to_menu_pressed() -> void:
+	GlobalVariables.level_data = {}
+	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")

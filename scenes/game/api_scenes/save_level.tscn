@@ -92,8 +92,7 @@ offset_left = -250.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Return To Menu
-"
+text = "Return To Menu (Level Will Be Erased Forever)"
 
 [connection signal="pressed" from="Hbox/Input/SaveLevelButton" to="." method="_on_save_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/CopyCode" to="." method="_on_copy_code_pressed"]

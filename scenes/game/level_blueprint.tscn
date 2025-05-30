@@ -113,5 +113,16 @@ scale = Vector2(3, 3)
 texture_normal = ExtResource("9_lcwo1")
 action = "down"
 
+[node name="ReturnToMenu" type="Button" parent="Hud"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Return To Menu (Level Will Be Erased Forever)
+"
+
 [connection signal="pressed" from="Hud/Erase" to="." method="_on_erase_pressed"]
 [connection signal="pressed" from="Hud/Rotate" to="." method="_on_rotate_pressed"]
+[connection signal="pressed" from="Hud/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

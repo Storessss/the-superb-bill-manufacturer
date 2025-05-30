@@ -12,10 +12,18 @@ script = ExtResource("1_oxrs7")
 
 [node name="Hud" parent="." instance=ExtResource("3_oxrs7")]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TouchControls" parent="." instance=ExtResource("4_wsojw")]
 
-[node name="TouchControls" parent="Control" instance=ExtResource("4_wsojw")]
+[node name="ReturnToMenu" type="Button" parent="TouchControls"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -364.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return To Menu"
+
+[connection signal="pressed" from="TouchControls/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
