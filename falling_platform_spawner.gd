@@ -3,7 +3,7 @@ extends Node2D
 var falling_platform_scene = preload("res://scenes/tiles/falling_platform.tscn")
 
 func _process(delta: float) -> void:
-	if not $Platform.get_child(0) and $SpawnTimer.is_stopped():
+	if $Platform.get_child_count() == 0 and $SpawnTimer.is_stopped():
 		$SpawnTimer.start()
 
 func spawn_platform():

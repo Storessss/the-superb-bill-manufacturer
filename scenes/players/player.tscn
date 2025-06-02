@@ -13,7 +13,7 @@ collision_priority = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 
 [node name="ResetTimer" type="Timer" parent="."]
 one_shot = true

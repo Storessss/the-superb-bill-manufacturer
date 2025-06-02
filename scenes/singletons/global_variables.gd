@@ -16,12 +16,15 @@ var category7_max: int = 1
 
 var tiles: Dictionary  = {
 	"bill": Vector2i(0,2),
+	"goal": Vector2i(1,2),
 	"spike": Vector2i(0,3),
 	"cannon": Vector2i(1,3),
 	"slime": Vector2i(0,4),
 	"platform": Vector2i(0,7),
 	"falling_platform": Vector2i(1,7)
 }
+
+signal level_win
 
 func read_level_data(tilemap: TileMapLayer):
 	if level_data:
@@ -70,4 +73,9 @@ func new_sound_player(db: int = 0) -> AudioStreamPlayer2D:
 func bullet_hit_wall() -> void:
 	var sound_player = new_sound_player(0)
 	sound_player.stream = preload("res://sounds/bullet_wall_hit.wav")
+	sound_player.play()
+
+func level_win_sound() -> void:
+	var sound_player = new_sound_player(0)
+	sound_player.stream = preload("res://sounds/level_win.wav")
 	sound_player.play()
