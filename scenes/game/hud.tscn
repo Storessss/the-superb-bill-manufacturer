@@ -35,7 +35,7 @@ offset_bottom = -5.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Level win!"
+text = "Level win !!"
 
 [node name="YouDidIt" type="Label" parent="."]
 anchors_preset = 8
@@ -50,8 +50,12 @@ offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "you did it !!"
+text = "you did it :DD"
 
 [node name="WinTimer" type="Timer" parent="."]
 wait_time = 7.0
 one_shot = true
+
+[node name="Keys" type="Node2D" parent="."]
+position = Vector2(0, 688)
+scale = Vector2(4, 4)

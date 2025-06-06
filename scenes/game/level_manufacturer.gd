@@ -27,6 +27,10 @@ func _ready() -> void:
 			tile = preload("res://scenes/tiles/falling_platform_spawner.tscn").instantiate()
 		elif atlas_coords == GlobalVariables.tiles["goal"]:
 			tile = preload("res://scenes/tiles/goal.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["key_lock"]:
+			tile = preload("res://scenes/tiles/key_lock.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["key_block"]:
+			tile = preload("res://scenes/tiles/key_block.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)

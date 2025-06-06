@@ -85,6 +85,7 @@ func die():
 		$AnimatedSprite2D.queue_free()
 		$ResetTimer.start()
 		$DeathSound.play()
+		GlobalVariables.keys = 0
 
 func _ready() -> void:
 	$ResetTimer.connect("timeout", Callable(self, "_on_reset_timer_timeout"))

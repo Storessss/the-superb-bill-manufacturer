@@ -19,3 +19,11 @@ func _process(_delta: float) -> void:
 		$YouDidIt.visible = false
 		if not GlobalVariables.music_player.playing:
 			GlobalVariables.music_player.play()
+			
+	for key in $Keys.get_children():
+		key.queue_free()
+	for i in range(GlobalVariables.keys):
+		var key = Sprite2D.new()
+		key.texture = preload("res://sprites/key.png")
+		key.position.x = (16 * (i + 1)) / 2
+		$Keys.add_child(key)

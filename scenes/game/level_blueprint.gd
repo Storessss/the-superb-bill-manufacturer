@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("erase"):
 		switch_erase_state()
 		
-	elif Input.is_action_just_pressed("restart"):
+	elif Input.is_action_just_pressed("rotate"):
 		switch_rotate_state()
 		
 	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)

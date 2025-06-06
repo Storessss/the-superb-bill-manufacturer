@@ -14,6 +14,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif body is TileMapLayer:
 		GlobalVariables.bullet_hit_wall()
 		queue_free()
-
-func _on_range_timer_timeout() -> void:
-	queue_free()

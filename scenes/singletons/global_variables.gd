@@ -4,7 +4,7 @@ var level_name: String
 var level_data: Dictionary
 var level_code: String
 
-var max_categories: int = 8
+var max_categories: int = 9
 var category0_max: int = 1
 var category1_max: int = 12
 var category2_max: int = 1
@@ -13,6 +13,7 @@ var category4_max: int = 0
 var category5_max: int = 1
 var category6_max: int = 3
 var category7_max: int = 1
+var category8_max: int = 1
 
 var tiles: Dictionary  = {
 	"bill": Vector2i(0,2),
@@ -21,9 +22,12 @@ var tiles: Dictionary  = {
 	"cannon": Vector2i(1,3),
 	"slime": Vector2i(0,4),
 	"platform": Vector2i(0,7),
-	"falling_platform": Vector2i(1,7)
+	"falling_platform": Vector2i(1,7),
+	"key_lock": Vector2i(0,8),
+	"key_block": Vector2i(1,8)
 }
 
+var keys: int
 signal level_win
 
 func read_level_data(tilemap: TileMapLayer):
