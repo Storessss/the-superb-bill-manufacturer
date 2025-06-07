@@ -84,8 +84,7 @@ func die():
 		get_tree().current_scene.add_child(particles)
 		$AnimatedSprite2D.queue_free()
 		$ResetTimer.start()
-		$DeathSound.play()
-		GlobalVariables.keys = 0
+		GlobalVariables.death_sound()
 
 func _ready() -> void:
 	$ResetTimer.connect("timeout", Callable(self, "_on_reset_timer_timeout"))

@@ -9,10 +9,10 @@ var category0_max: int = 1
 var category1_max: int = 12
 var category2_max: int = 1
 var category3_max: int = 1
-var category4_max: int = 0
-var category5_max: int = 1
+var category4_max: int = 2
+var category5_max: int = 2
 var category6_max: int = 3
-var category7_max: int = 1
+var category7_max: int = 2
 var category8_max: int = 1
 
 var tiles: Dictionary  = {
@@ -21,6 +21,7 @@ var tiles: Dictionary  = {
 	"spike": Vector2i(0,3),
 	"cannon": Vector2i(1,3),
 	"slime": Vector2i(0,4),
+	"beholder": Vector2i(1,4),
 	"platform": Vector2i(0,7),
 	"falling_platform": Vector2i(1,7),
 	"key_lock": Vector2i(0,8),
@@ -70,11 +71,13 @@ func new_sound_player(db: int = 0) -> AudioStreamPlayer2D:
 	var sound_player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 	sound_player.bus = "Sounds"
 	sound_player.volume_db = db
+	sound_player.max_distance = 999999999
+	sound_player.attenuation = 0
 	add_child(sound_player)
 	sound_players.append(sound_player)
 	return sound_player
 	
-func bullet_hit_wall() -> void:
+func bullet_hit_wall_sound() -> void:
 	var sound_player = new_sound_player(0)
 	sound_player.stream = preload("res://sounds/bullet_wall_hit.wav")
 	sound_player.play()
@@ -83,3 +86,25 @@ func level_win_sound() -> void:
 	var sound_player = new_sound_player(0)
 	sound_player.stream = preload("res://sounds/level_win.wav")
 	sound_player.play()
+	
+func key_get_sound() -> void:
+	var sound_player = new_sound_player(10)
+	sound_player.stream = preload("res://sounds/key_get.wav")
+	sound_player.play()
+	
+func lock_unlock_sound() -> void:
+	var sound_player = new_sound_player(15)
+	sound_player.stream = preload("res://sounds/lock_unlock.wav")
+	sound_player.play()
+	
+func death_sound() -> void:
+	var sound_player = new_sound_player(2)
+	sound_player.stream = preload("res://sounds/death_sound.wav")
+	sound_player.play()
+	
+func return_to_menu() -> void:
+	GlobalVariables.level_data = {}
+	GlobalVariables.level_name = ""
+	GlobalVariables.level_code = ""
+	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")
+	

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://7he7oot14qkt"
-path="res://.godot/imported/death_noise.wav-ea6ca59f7ac53d0bcba27ce3395877a2.sample"
+uid="uid://jjohnthu645p"
+path="res://.godot/imported/lock_unlock.wav-76cdca55cedc8dc3a8076e920171700a.sample"
 
 [deps]
 
-source_file="res://sounds/death_noise.wav"
-dest_files=["res://.godot/imported/death_noise.wav-ea6ca59f7ac53d0bcba27ce3395877a2.sample"]
+source_file="res://sounds/lock_unlock.wav"
+dest_files=["res://.godot/imported/lock_unlock.wav-76cdca55cedc8dc3a8076e920171700a.sample"]
 
 [params]
 

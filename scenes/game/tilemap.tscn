@@ -50,6 +50,7 @@ texture = ExtResource("1_plsvb")
 0:8/0 = 0
 2:7/0 = 0
 2:4/0 = 0
+1:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_57hsq"]
 physics_layer_0/collision_layer = 1

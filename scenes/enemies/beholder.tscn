@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmvjbq30cix7l"]
+
+[ext_resource type="PackedScene" uid="uid://blbyfhvh0tsg5" path="res://scenes/enemies/enemy.tscn" id="1_ukc04"]
+[ext_resource type="Script" uid="uid://bjaay1kk7xe5c" path="res://scenes/enemies/beholder.gd" id="2_ej3si"]
+[ext_resource type="Texture2D" uid="uid://dt0mgdaxwe6o3" path="res://sprites/beholder.png" id="2_ulb2n"]
+[ext_resource type="AudioStream" uid="uid://btuuvalui41ly" path="res://sounds/beholder_shoot.wav" id="4_ej3si"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ej3si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ulb2n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukc04"]
+size = Vector2(10, 10)
+
+[node name="Beholder" instance=ExtResource("1_ukc04")]
+script = ExtResource("2_ej3si")
+death_particles_color = Color(0.768627, 0.141176, 0.188235, 1)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ej3si")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ukc04")
+
+[node name="ShootTimer" type="Timer" parent="." index="2"]
+wait_time = 3.0
+autostart = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_ej3si")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

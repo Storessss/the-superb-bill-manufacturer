@@ -31,6 +31,8 @@ func _ready() -> void:
 			tile = preload("res://scenes/tiles/key_lock.tscn").instantiate()
 		elif atlas_coords == GlobalVariables.tiles["key_block"]:
 			tile = preload("res://scenes/tiles/key_block.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["beholder"]:
+			tile = preload("res://scenes/enemies/beholder.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)
@@ -49,13 +51,14 @@ func _process(_delta: float):
 	if no_players_reload:
 		no_players_reload = false
 		if get_tree().get_nodes_in_group("players").is_empty():
+			GlobalVariables.keys = 0
 			get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
 	if Input.is_action_just_pressed("edit"):
+		GlobalVariables.keys = 0
 		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
 	if get_tree():
 		if get_tree().get_nodes_in_group("players").is_empty():
 			get_tree().reload_current_scene()
 			
 func _on_return_to_menu_pressed() -> void:
-	GlobalVariables.level_data = {}
-	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")
+	GlobalVariables.return_to_menu()

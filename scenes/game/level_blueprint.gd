@@ -152,5 +152,4 @@ func switch_rotate_state() -> void:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_off.png")
 
 func _on_return_to_menu_pressed() -> void:
-	GlobalVariables.level_data = {}
-	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")
+	GlobalVariables.return_to_menu()

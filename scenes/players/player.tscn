@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbub7tbyi1oae"]
+[gd_scene load_steps=2 format=3 uid="uid://dbub7tbyi1oae"]
 
-[ext_resource type="AudioStream" uid="uid://7he7oot14qkt" path="res://sounds/death_noise.wav" id="1_plyga"]
 [ext_resource type="AudioStream" uid="uid://1yucfhov37sc" path="res://sounds/bill_jump.wav" id="2_ldeu4"]
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
@@ -25,10 +24,6 @@ one_shot = true
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_plyga")
-volume_db = 2.0
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ldeu4")
