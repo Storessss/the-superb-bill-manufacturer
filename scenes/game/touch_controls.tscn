@@ -13,36 +13,36 @@ script = ExtResource("1_tdk8j")
 
 [node name="Left" type="TouchScreenButton" parent="."]
 position = Vector2(172, 550)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("1_3aok2")
 action = "left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
 position = Vector2(300, 550)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("2_rk0qf")
 action = "right"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
 position = Vector2(1044, 550)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("3_tdk8j")
 action = "jump"
 
 [node name="Down" type="TouchScreenButton" parent="."]
 position = Vector2(916, 550)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("5_pp6oc")
 action = "down"
 
 [node name="Restart" type="TouchScreenButton" parent="."]
 position = Vector2(512, 0)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("4_pp6oc")
 action = "restart"
 
 [node name="Edit" type="TouchScreenButton" parent="."]
 position = Vector2(704, 0)
-scale = Vector2(4, 4)
+scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("5_rk0qf")
 action = "edit"

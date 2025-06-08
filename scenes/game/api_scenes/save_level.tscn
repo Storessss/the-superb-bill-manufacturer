@@ -94,6 +94,8 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Return To Menu (Level Will Be Erased Forever)"
 
+[connection signal="focus_entered" from="Hbox/Input/LevelName" to="." method="_on_level_name_focus_entered"]
+[connection signal="gui_input" from="Hbox/Input/LevelName" to="." method="_on_level_name_gui_input"]
 [connection signal="pressed" from="Hbox/Input/SaveLevelButton" to="." method="_on_save_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/CopyCode" to="." method="_on_copy_code_pressed"]
 [connection signal="pressed" from="ReturnToLevelBuilder" to="." method="_on_return_to_level_builder_pressed"]

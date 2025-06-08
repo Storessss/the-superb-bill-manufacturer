@@ -36,8 +36,6 @@ func _on_request_completed(result, response_code, headers, body):
 		return
 		
 	var response = json.get_data()
-	#TODO: playtest empty level
-	#TODO ERASE on button press
 	if response_code == 200:
 		%StateLabel.text = str(response.get("message", "No message"))
 		%SaveLevelButton.visible = false
@@ -56,3 +54,7 @@ func _on_return_to_level_builder_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
 func _on_return_to_menu_pressed() -> void:
 	GlobalVariables.return_to_menu()
+
+func _on_level_name_focus_entered() -> void:
+	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+		DisplayServer.virtual_keyboard_show("")

@@ -120,7 +120,7 @@ position = Vector2(190, 600)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_m5f7d")
 autoplay = "default"
-frame_progress = 0.887711
+frame_progress = 0.930486
 
 [node name="Tilemap" parent="." instance=ExtResource("5_uff8u")]
 scale = Vector2(4, 4)
@@ -195,5 +195,6 @@ value = 5.0
 tick_count = 10
 
 [connection signal="pressed" from="Hbox/Random/RandomLevelButton" to="." method="_on_random_level_button_pressed"]
+[connection signal="focus_entered" from="Hbox/ByCode/LevelCode" to="." method="_on_level_code_focus_entered"]
 [connection signal="pressed" from="Hbox/ByCode/SearchByCodeButton" to="." method="_on_search_by_code_button_pressed"]
 [connection signal="pressed" from="CreateLevelButton" to="." method="_on_create_level_button_pressed"]

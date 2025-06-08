@@ -103,13 +103,14 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("rotate"):
 		switch_rotate_state()
 		
-	var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
-	if source.get_tile_texture_region(Vector2i(selector, category)):
-		var rect = source.get_tile_texture_region(Vector2i(selector, category))
-		var image: Image = source.texture.get_image()
-		var tile_image = image.get_region(rect)
-		selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
-		selected_tile_sprite.global_position = get_global_mouse_position()
+	if not (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
+		if source.get_tile_texture_region(Vector2i(selector, category)):
+			var rect = source.get_tile_texture_region(Vector2i(selector, category))
+			var image: Image = source.texture.get_image()
+			var tile_image = image.get_region(rect)
+			selected_tile_sprite.texture = ImageTexture.create_from_image(tile_image)
+			selected_tile_sprite.global_position = get_global_mouse_position()
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	$Camera2D.position += direction * 300 * delta
