@@ -17,6 +17,7 @@ func _physics_process(delta):
 				velocity.x = 120
 				$AnimatedSprite2D.flip_h = false
 		velocity.y = -300
+		$JumpSound.play()
 		
 	velocity.x = move_toward(velocity.x, 0, 1)
 	if is_on_floor() and velocity.y == 0:

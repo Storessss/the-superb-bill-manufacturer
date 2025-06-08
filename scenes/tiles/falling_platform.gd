@@ -18,6 +18,7 @@ func activate():
 	if not activated:
 		activated = true
 		$FallTimer.start()
+		GlobalVariables.platform_fall_sound()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:

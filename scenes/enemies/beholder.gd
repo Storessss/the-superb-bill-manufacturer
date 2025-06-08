@@ -9,11 +9,10 @@ func _physics_process(delta: float) -> void:
 func _on_shoot_timer_timeout() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
-	if get_tree().get_nodes_in_group("players")[0]:
-		var target_player = get_tree().get_nodes_in_group("players")[0]
-		bullet.angle = (target_player.global_position - global_position).angle()
-		get_tree().current_scene.add_child(bullet)
-		$ShootSound.play()
+	var target_player = get_tree().get_first_node_in_group("players")
+	bullet.angle = (target_player.global_position - global_position).angle()
+	get_tree().current_scene.add_child(bullet)
+	$ShootSound.play()
 		
 func _process(_delta: float) -> void:
 	if $ShootTimer.time_left < 1:

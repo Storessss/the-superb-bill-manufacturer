@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhriqhwa6qi1d"
+path="res://.godot/imported/Better Days.ogg-e7e76e6176cb316d8fafbf062ced848b.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Better Days.ogg"
+dest_files=["res://.godot/imported/Better Days.ogg-e7e76e6176cb316d8fafbf062ced848b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

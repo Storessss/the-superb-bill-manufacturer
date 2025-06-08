@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq368gl5x8suq"]
+[gd_scene load_steps=7 format=3 uid="uid://bq368gl5x8suq"]
 
 [ext_resource type="PackedScene" uid="uid://blbyfhvh0tsg5" path="res://scenes/enemies/enemy.tscn" id="1_ahq63"]
 [ext_resource type="Texture2D" uid="uid://drshpuvvcf17a" path="res://sprites/slime.png" id="2_4h4y0"]
 [ext_resource type="Script" uid="uid://bwguuohy5jbjq" path="res://scenes/enemies/slime.gd" id="2_b58ev"]
+[ext_resource type="AudioStream" uid="uid://bmfqhf3y61237" path="res://sounds/slime_jump.wav" id="4_b58ev"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b58ev"]
 animations = [{
@@ -35,3 +36,7 @@ shape = SubResource("RectangleShape2D_4h4y0")
 wait_time = 2.5
 one_shot = true
 autostart = true
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_b58ev")
+volume_db = -4.0

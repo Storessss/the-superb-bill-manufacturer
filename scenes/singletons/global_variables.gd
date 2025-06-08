@@ -22,6 +22,7 @@ var tiles: Dictionary  = {
 	"cannon": Vector2i(1,3),
 	"slime": Vector2i(0,4),
 	"beholder": Vector2i(1,4),
+	"robot": Vector2i(2,4),
 	"platform": Vector2i(0,7),
 	"falling_platform": Vector2i(1,7),
 	"key_lock": Vector2i(0,8),
@@ -50,14 +51,15 @@ func _process(delta: float) -> void:
 		current_scene_name = get_tree().current_scene.name
 		if current_scene_name != previous_scene_name:
 			previous_scene_name = current_scene_name
-			if current_scene_name == "LevelBlueprint":
+			if current_scene_name == "GameMenu":
+				music_player.stream = preload("res://music/Better Days.ogg")
+				music_player.play()
+			elif current_scene_name == "LevelBlueprint":
 				music_player.stream = preload("res://music/The Eternal Factory.ogg")
 				music_player.play()
 			elif current_scene_name == "LevelManufacturer":
 				music_player.stream = preload("res://music/My Own Creation.ogg")
 				music_player.play()
-			else:
-				music_player.stop()
 				
 	for player: AudioStreamPlayer2D in sound_players:
 		if not player.playing:
@@ -100,6 +102,11 @@ func lock_unlock_sound() -> void:
 func death_sound() -> void:
 	var sound_player = new_sound_player(2)
 	sound_player.stream = preload("res://sounds/death_sound.wav")
+	sound_player.play()
+	
+func platform_fall_sound() -> void:
+	var sound_player = new_sound_player(0)
+	sound_player.stream = preload("res://sounds/platform_fall.wav")
 	sound_player.play()
 	
 func return_to_menu() -> void:
