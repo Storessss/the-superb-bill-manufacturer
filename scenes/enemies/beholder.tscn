@@ -35,5 +35,6 @@ autostart = true
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource("4_ej3si")
+bus = &"Sound"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

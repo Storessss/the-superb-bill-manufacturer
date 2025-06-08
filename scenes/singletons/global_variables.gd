@@ -53,6 +53,7 @@ var current_scene_name: String
 func _ready() -> void:
 	music_player.max_distance = 999999999
 	music_player.attenuation = 0
+	music_player.bus = "Music"
 	add_child(music_player)
 func _process(delta: float) -> void:
 	if get_tree().current_scene:
@@ -83,6 +84,7 @@ func new_sound_player(db: int = 0) -> AudioStreamPlayer2D:
 	sound_player.volume_db = db
 	sound_player.max_distance = 999999999
 	sound_player.attenuation = 0
+	sound_player.bus = "Sound"
 	add_child(sound_player)
 	sound_players.append(sound_player)
 	return sound_player
@@ -123,3 +125,6 @@ func return_to_menu() -> void:
 	GlobalVariables.level_code = ""
 	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")
 	
+var master_volume_value: int = 5
+var music_volume_value: int = 5
+var sound_volume_value: int = 5

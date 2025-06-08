@@ -5,7 +5,9 @@ var http_request = HTTPRequest.new()
 func _ready():
 	add_child(http_request)
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
-	
+	$VBoxContainer/MasterVolume.value = GlobalVariables.master_volume_value
+	$VBoxContainer/MusicVolume.value = GlobalVariables.music_volume_value
+	$VBoxContainer/SoundVolume.value = GlobalVariables.sound_volume_value
 	
 func get_random_level():
 	var url = "https://stuffbystore.com/api/tsbm/get-random-level"
@@ -54,3 +56,14 @@ func _on_search_by_code_button_pressed() -> void:
 
 func _on_create_level_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+	
+func _process(_delta: float) -> void:
+	var master_db = linear_to_db($VBoxContainer/MasterVolume.value) -14
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), master_db)
+	var music_db = linear_to_db($VBoxContainer/MusicVolume.value) -14
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_db)
+	var sound_db = linear_to_db($VBoxContainer/SoundVolume.value) -14
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), sound_db)
+	GlobalVariables.master_volume_value = $VBoxContainer/MasterVolume.value
+	GlobalVariables.music_volume_value = $VBoxContainer/MusicVolume.value
+	GlobalVariables.sound_volume_value = $VBoxContainer/SoundVolume.value

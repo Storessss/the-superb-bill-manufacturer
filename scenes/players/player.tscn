@@ -28,3 +28,4 @@ one_shot = true
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ldeu4")
 volume_db = -6.0
+bus = &"Sound"
