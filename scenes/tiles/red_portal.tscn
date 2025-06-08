@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3wyad7eihf"]
+
+[ext_resource type="PackedScene" uid="uid://s3ok4c68cfm7" path="res://scenes/tiles/portal.tscn" id="1_27iih"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="2_wcfuj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55eql"]
+atlas = ExtResource("2_wcfuj")
+region = Rect2(32, 96, 16, 16)
+
+[node name="RedPortal" groups=["red_portals"] instance=ExtResource("1_27iih")]
+portal_color = "red"
+teleport_particles_color = Color(0.960784, 0.333333, 0.364706, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_55eql")

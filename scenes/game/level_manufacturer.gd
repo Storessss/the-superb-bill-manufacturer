@@ -41,6 +41,16 @@ func _ready() -> void:
 			tile = preload("res://scenes/tiles/beholder_spawner.tscn").instantiate()
 		elif atlas_coords == GlobalVariables.tiles["robot_spawner"]:
 			tile = preload("res://scenes/tiles/robot_spawner.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["one_way_platform"]:
+			tile = preload("res://scenes/tiles/one_way_platform.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["green_portal"]:
+			tile = preload("res://scenes/tiles/green_portal.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["blue_portal"]:
+			tile = preload("res://scenes/tiles/blue_portal.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["red_portal"]:
+			tile = preload("res://scenes/tiles/red_portal.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["yellow_portal"]:
+			tile = preload("res://scenes/tiles/yellow_portal.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)

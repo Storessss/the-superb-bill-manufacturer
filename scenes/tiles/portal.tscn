@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3ok4c68cfm7"]
+
+[ext_resource type="Script" uid="uid://clqwe60qb5km8" path="res://scenes/tiles/portal.gd" id="1_1skfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owfmj"]
+size = Vector2(16, 16)
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_1skfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_owfmj")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

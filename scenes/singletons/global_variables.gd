@@ -26,8 +26,13 @@ var tiles: Dictionary  = {
 	"slime_spawner": Vector2i(0,5),
 	"beholder_spawner": Vector2i(1,5),
 	"robot_spawner": Vector2i(2,5),
+	"green_portal": Vector2i(0,6),
+	"blue_portal": Vector2i(1,6),
+	"red_portal": Vector2i(2,6),
+	"yellow_portal": Vector2i(3,6),
 	"platform": Vector2i(0,7),
 	"falling_platform": Vector2i(1,7),
+	"one_way_platform": Vector2i(2,7),
 	"key_lock": Vector2i(0,8),
 	"key_block": Vector2i(1,8)
 }

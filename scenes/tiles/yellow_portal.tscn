@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0hi0qcaja46q"]
+
+[ext_resource type="PackedScene" uid="uid://s3ok4c68cfm7" path="res://scenes/tiles/portal.tscn" id="1_3seny"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="2_yf8dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55eql"]
+atlas = ExtResource("2_yf8dk")
+region = Rect2(48, 96, 16, 16)
+
+[node name="YellowPortal" groups=["yellow_portals"] instance=ExtResource("1_3seny")]
+portal_color = "yellow"
+teleport_particles_color = Color(1, 0.921569, 0.341176, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_55eql")

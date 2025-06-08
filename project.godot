@@ -31,6 +31,10 @@ window/stretch/aspect="expand"
 players=""
 enemies=""
 falling_platforms=""
+green_portals=""
+blue_portals=""
+red_portals=""
+yellow_portals=""
 
 [input]
 
