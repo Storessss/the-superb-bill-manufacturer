@@ -4,7 +4,6 @@ var speed: int = 45
 var wait: bool = true
 
 func _ready() -> void:
-	print(rotation)
 	if is_equal_approx(rotation, PI):
 		$AnimatedSprite2D.flip_v = not $AnimatedSprite2D.flip_v
 		speed = -speed

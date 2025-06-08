@@ -39,4 +39,4 @@ autostart = true
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource("4_b58ev")
-volume_db = -4.0
+volume_db = -7.0

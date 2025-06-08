@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbmtn82o4nhw3"]
+
+[ext_resource type="PackedScene" uid="uid://1sqybgtfo883" path="res://scenes/tiles/spawner.tscn" id="1_bcipu"]
+[ext_resource type="PackedScene" uid="uid://c0xd22gf1k06x" path="res://scenes/enemies/robot.tscn" id="2_y0aqd"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="3_y0aqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccfqb"]
+atlas = ExtResource("3_y0aqd")
+region = Rect2(32, 80, 16, 16)
+
+[node name="RobotSpawner" instance=ExtResource("1_bcipu")]
+enemy_scene = ExtResource("2_y0aqd")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_ccfqb")

@@ -35,6 +35,12 @@ func _ready() -> void:
 			tile = preload("res://scenes/enemies/beholder.tscn").instantiate()
 		elif atlas_coords == GlobalVariables.tiles["robot"]:
 			tile = preload("res://scenes/enemies/robot.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["slime_spawner"]:
+			tile = preload("res://scenes/tiles/slime_spawner.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["beholder_spawner"]:
+			tile = preload("res://scenes/tiles/beholder_spawner.tscn").instantiate()
+		elif atlas_coords == GlobalVariables.tiles["robot_spawner"]:
+			tile = preload("res://scenes/tiles/robot_spawner.tscn").instantiate()
 			
 		if tile != null:
 			tile.global_position = tilemap.map_to_local(cell)

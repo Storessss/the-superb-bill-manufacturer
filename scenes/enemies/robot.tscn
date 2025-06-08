@@ -40,14 +40,14 @@ collision_mask = 5
 
 [node name="TurnAroundSound" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource("4_4nyjy")
-volume_db = 8.0
+volume_db = 4.0
 
 [node name="TurnAroundTimer" type="Timer" parent="." index="5"]
-wait_time = 0.5
+wait_time = 0.7
 one_shot = true
 
 [node name="TurnedAroundTimer" type="Timer" parent="." index="6"]
-wait_time = 0.8
+wait_time = 0.7
 one_shot = true
 
 [connection signal="timeout" from="TurnAroundTimer" to="." method="_on_turn_around_timer_timeout"]

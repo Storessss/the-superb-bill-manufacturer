@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://u7carj4vyt8d"]
+
+[ext_resource type="PackedScene" uid="uid://1sqybgtfo883" path="res://scenes/tiles/spawner.tscn" id="1_o2caa"]
+[ext_resource type="PackedScene" uid="uid://dmvjbq30cix7l" path="res://scenes/enemies/beholder.tscn" id="2_o2caa"]
+[ext_resource type="Texture2D" uid="uid://b5lq8s187lak1" path="res://sprites/tileset.png" id="3_akxsc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1stpl"]
+atlas = ExtResource("3_akxsc")
+region = Rect2(16, 80, 16, 16)
+
+[node name="BeholderSpawner" instance=ExtResource("1_o2caa")]
+enemy_scene = ExtResource("2_o2caa")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_1stpl")
