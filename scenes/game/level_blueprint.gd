@@ -46,7 +46,7 @@ func _ready() -> void:
 		var tile_image = image.get_region(rect)
 		var hotbar_button: TextureButton = TextureButton.new()
 		hotbar_button.texture_normal = ImageTexture.create_from_image(tile_image)
-		hotbar_button.custom_minimum_size = Vector2(40, 40)
+		hotbar_button.custom_minimum_size = Vector2(60, 60)
 		hotbar_button.stretch_mode = TextureButton.STRETCH_SCALE
 		hotbar_button.set_meta("category_index", i)
 		hotbar_button.connect("pressed", Callable(self, "_on_category_hotbar_button_pressed").bind(hotbar_button))
@@ -63,7 +63,7 @@ func _on_category_hotbar_button_pressed(category_button: TextureButton) -> void:
 		var tile_image = image.get_region(rect)
 		var hotbar_button: TextureButton = TextureButton.new()
 		hotbar_button.texture_normal = ImageTexture.create_from_image(tile_image)
-		hotbar_button.custom_minimum_size = Vector2(40, 40)
+		hotbar_button.custom_minimum_size = Vector2(60, 60)
 		hotbar_button.stretch_mode = TextureButton.STRETCH_SCALE
 		hotbar_button.set_meta("tile_index", i)
 		hotbar_button.connect("pressed", Callable(self, "_on_tile_hotbar_button_pressed").bind(hotbar_button))

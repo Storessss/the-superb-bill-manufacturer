@@ -4,6 +4,7 @@ extends Node2D
 var portals: Array
 var next_index: int
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var teleport_sound: AudioStreamPlayer2D = $TeleportSound
 
 var teleport_particles_scene: PackedScene = preload("res://scenes/particles/teleport_particles.tscn")
 @export var teleport_particles_color: Color
@@ -21,4 +22,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			particles.global_position = portals[next_index].global_position
 			particles.color = teleport_particles_color
 			get_tree().current_scene.add_child(particles)
-		
+			portals[next_index].teleport_sound.play()

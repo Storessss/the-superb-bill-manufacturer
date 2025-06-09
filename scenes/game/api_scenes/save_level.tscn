@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ghi2jq7gpdx0"]
+[gd_scene load_steps=3 format=3 uid="uid://ghi2jq7gpdx0"]
 
 [ext_resource type="Script" uid="uid://cosjxt4ra2aiy" path="res://scenes/game/api_scenes/save_level.gd" id="1_wd2id"]
+[ext_resource type="Theme" uid="uid://dct7dwc7568bd" path="res://fonts/MinimalUI.tres" id="2_qc10h"]
 
 [node name="SaveLevel" type="Control"]
 layout_mode = 3
@@ -33,11 +34,13 @@ layout_mode = 2
 [node name="LevelName" type="LineEdit" parent="Hbox/Input"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_qc10h")
 placeholder_text = "Level Name"
 
 [node name="SaveLevelButton" type="Button" parent="Hbox/Input"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_qc10h")
 text = "Save Level"
 
 [node name="Output" type="VBoxContainer" parent="Hbox"]
@@ -46,11 +49,14 @@ layout_mode = 2
 
 [node name="LevelCode" type="LineEdit" parent="Hbox/Output"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 43)
 layout_mode = 2
+theme = ExtResource("2_qc10h")
 editable = false
 
 [node name="CopyCode" type="Button" parent="Hbox/Output"]
 layout_mode = 2
+theme = ExtResource("2_qc10h")
 text = "Copy Code
 "
 
@@ -79,6 +85,7 @@ anchor_bottom = 1.0
 offset_top = -31.0
 offset_right = 250.0
 grow_vertical = 0
+theme = ExtResource("2_qc10h")
 text = "Return To Level Builder"
 
 [node name="ReturnToMenu" type="Button" parent="."]
@@ -92,10 +99,9 @@ offset_left = -250.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("2_qc10h")
 text = "Return To Menu (Level Will Be Erased Forever)"
 
-[connection signal="focus_entered" from="Hbox/Input/LevelName" to="." method="_on_level_name_focus_entered"]
-[connection signal="gui_input" from="Hbox/Input/LevelName" to="." method="_on_level_name_gui_input"]
 [connection signal="pressed" from="Hbox/Input/SaveLevelButton" to="." method="_on_save_level_button_pressed"]
 [connection signal="pressed" from="Hbox/Output/CopyCode" to="." method="_on_copy_code_pressed"]
 [connection signal="pressed" from="ReturnToLevelBuilder" to="." method="_on_return_to_level_builder_pressed"]

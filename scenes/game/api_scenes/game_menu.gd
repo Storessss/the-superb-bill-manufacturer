@@ -67,7 +67,3 @@ func _process(_delta: float) -> void:
 	GlobalVariables.master_volume_value = $VBoxContainer/MasterVolume.value
 	GlobalVariables.music_volume_value = $VBoxContainer/MusicVolume.value
 	GlobalVariables.sound_volume_value = $VBoxContainer/SoundVolume.value
-
-func _on_level_code_focus_entered() -> void:
-	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
-		DisplayServer.virtual_keyboard_show("")

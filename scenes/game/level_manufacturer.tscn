@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://tjt5idwh0g6n"]
+[gd_scene load_steps=6 format=3 uid="uid://tjt5idwh0g6n"]
 
 [ext_resource type="Script" uid="uid://uhijopk07ajm" path="res://scenes/game/level_manufacturer.gd" id="1_oxrs7"]
 [ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="2_6d3ef"]
 [ext_resource type="PackedScene" uid="uid://cl0i4p3lb4mu1" path="res://scenes/game/hud.tscn" id="3_oxrs7"]
 [ext_resource type="PackedScene" uid="uid://h75jakvypfwe" path="res://scenes/game/touch_controls.tscn" id="4_wsojw"]
+[ext_resource type="Theme" uid="uid://dct7dwc7568bd" path="res://fonts/MinimalUI.tres" id="5_57hsq"]
 
 [node name="LevelManufacturer" type="Node2D"]
 script = ExtResource("1_oxrs7")
@@ -24,6 +25,7 @@ offset_left = -364.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("5_57hsq")
 text = "Return To Menu (Level Will Be Erased Forever)"
 
 [connection signal="pressed" from="TouchControls/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
