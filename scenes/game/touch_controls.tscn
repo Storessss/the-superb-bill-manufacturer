@@ -37,12 +37,12 @@ action = "down"
 
 [node name="Restart" type="TouchScreenButton" parent="."]
 position = Vector2(512, 0)
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 texture_normal = ExtResource("4_pp6oc")
 action = "restart"
 
 [node name="Edit" type="TouchScreenButton" parent="."]
-position = Vector2(672, 0)
-scale = Vector2(6, 6)
+position = Vector2(704, 0)
+scale = Vector2(4, 4)
 texture_normal = ExtResource("5_rk0qf")
 action = "edit"

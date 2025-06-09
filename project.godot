@@ -13,7 +13,11 @@ config_version=5
 config/name="The Superb Bill Manufacturer"
 run/main_scene="uid://b42v8vnhencjj"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.548963, 0.548963, 0.548963, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://c8v8p8d71j7wj"
+config/icon="uid://ce3588ef4gegg"
 
 [autoload]
 
@@ -23,6 +27,7 @@ GlobalVariables="*res://scenes/singletons/global_variables.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [global_group]

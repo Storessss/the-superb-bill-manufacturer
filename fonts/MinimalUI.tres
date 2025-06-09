@@ -2,24 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://875dpp46gxhl" path="res://fonts/OpenSans-Regular.ttf" id="1_mq7vc"]
 
-[sub_resource type="FontFile" id="21"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/12/0/ascent = 0.0
-cache/0/12/0/descent = 0.0
-cache/0/12/0/underline_position = 0.0
-cache/0/12/0/underline_thickness = 0.0
-cache/0/12/0/scale = 1.0
-cache/0/24/0/ascent = 0.0
-cache/0/24/0/descent = 0.0
-cache/0/24/0/underline_position = 0.0
-cache/0/24/0/underline_thickness = 0.0
-cache/0/24/0/scale = 1.0
-
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
@@ -63,6 +45,24 @@ region = Rect2(61, 111, 18, 18)
 region = Rect2(13, 111, 18, 18)
 
 [sub_resource type="StyleBoxEmpty" id="26"]
+
+[sub_resource type="FontFile" id="21"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
 
 [sub_resource type="AtlasTexture" id="7"]
 region = Rect2(53, 79, 34, 19)
@@ -352,7 +352,7 @@ Button/colors/font_disabled_color = Color(0.9, 0.9, 0.9, 0.2)
 Button/colors/font_hover_color = Color(0.94, 0.94, 0.94, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/h_separation = 2
-Button/fonts/font = SubResource("21")
+Button/fonts/font = ExtResource("1_mq7vc")
 Button/styles/disabled = SubResource("1")
 Button/styles/focus = SubResource("2")
 Button/styles/hover = SubResource("3")
@@ -365,7 +365,7 @@ CheckBox/colors/font_hover_color_pressed = Color(1, 1, 1, 1)
 CheckBox/colors/font_pressed_color = Color(1, 1, 1, 1)
 CheckBox/constants/check_v_offset = 0
 CheckBox/constants/h_separation = 4
-CheckBox/fonts/font = SubResource("21")
+CheckBox/fonts/font = ExtResource("1_mq7vc")
 CheckBox/icons/checked = SubResource("22")
 CheckBox/icons/radio_checked = SubResource("23")
 CheckBox/icons/radio_unchecked = SubResource("24")
@@ -420,7 +420,7 @@ LineEdit/colors/font_color_uneditable = Color(0.88, 0.88, 0.88, 0.5)
 LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
 LineEdit/colors/selection_color = Color(0.282353, 0.282353, 0.282353, 1)
 LineEdit/constants/minimum_spaces = 12
-LineEdit/fonts/font = SubResource("21")
+LineEdit/fonts/font = ExtResource("1_mq7vc")
 LineEdit/icons/clear = null
 LineEdit/styles/focus = SubResource("27")
 LineEdit/styles/normal = SubResource("28")
@@ -501,7 +501,7 @@ TextEdit/constants/completion_lines = 7
 TextEdit/constants/completion_max_width = 50
 TextEdit/constants/completion_scroll_width = 3
 TextEdit/constants/line_spacing = 4
-TextEdit/fonts/font = SubResource("21")
+TextEdit/fonts/font = ExtResource("1_mq7vc")
 TextEdit/icons/fold = null
 TextEdit/icons/folded = null
 TextEdit/icons/space = null

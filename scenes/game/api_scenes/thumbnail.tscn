@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=4 uid="uid://p2ybtfecjmil"]
+
+[ext_resource type="Texture2D" uid="uid://ce3588ef4gegg" path="res://sprites/bill_idle1.png" id="4_vcxhd"]
+[ext_resource type="Texture2D" uid="uid://5blcaak2uacc" path="res://sprites/bill_idle2.png" id="5_msbp3"]
+[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="6_wr8ba"]
+[ext_resource type="Texture2D" uid="uid://bcn2a1vml61ts" path="res://sprites/eye_light.png" id="7_j27tn"]
+[ext_resource type="Texture2D" uid="uid://y7y6e18vhy00" path="res://sprites/background.png" id="8_gsuu4"]
+[ext_resource type="Texture2D" uid="uid://bq3dk81yfg1iq" path="res://sprites/eye.png" id="9_xoq4o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5f7d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vcxhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_msbp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.85
+}]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bill" type="AnimatedSprite2D" parent="."]
+position = Vector2(619, 600)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_m5f7d")
+autoplay = "default"
+frame_progress = 0.930486
+
+[node name="Tilemap" parent="." instance=ExtResource("6_wr8ba")]
+position = Vector2(429, 0)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAEAAAAAAAoAAAAAAAEAAAABAAoAAAAAAAEAAAABAAsAAAAAAAEAAAACAAoAAAAAAAEAAAACAAsAAAAAAAEAAAADAAoAAAAAAAEAAAADAAsAAAAAAAEAAAAEAAoAAAAAAAEAAAAEAAsAAAAAAAEAAAAAAAkAAAAAAAMAAAABAAkAAAAAAAMAAAAEAAkAAAAAAAMAAAA=")
+
+[node name="EyeLight" type="PointLight2D" parent="."]
+position = Vector2(619, 346)
+rotation = 1.5708
+color = Color(0.940362, 5.34251e-06, 3.85046e-07, 1)
+energy = 3.0
+blend_mode = 2
+shadow_filter_smooth = 27.5
+texture = ExtResource("7_j27tn")
+texture_scale = 3.0
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(748.502, 364)
+scale = Vector2(142.813, 54)
+texture = ExtResource("8_gsuu4")
+
+[node name="Eye" type="Sprite2D" parent="."]
+light_mask = 2
+z_index = -3
+position = Vector2(619, 14)
+scale = Vector2(10, 10)
+texture = ExtResource("9_xoq4o")
