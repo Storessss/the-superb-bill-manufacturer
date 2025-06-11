@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3oitsm4shc86"]
+
+[ext_resource type="Texture2D" uid="uid://dqn1jd71vre4j" path="res://sprites/restart_button.png" id="6_grpy6"]
+[ext_resource type="Texture2D" uid="uid://tada57uc5tug" path="res://sprites/edit_button.png" id="7_b1cfn"]
+
+[node name="LevelControls" type="CanvasLayer"]
+
+[node name="Restart" type="TouchScreenButton" parent="."]
+position = Vector2(512, 0)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("6_grpy6")
+action = "restart"
+
+[node name="Edit" type="TouchScreenButton" parent="."]
+position = Vector2(704, 0)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_b1cfn")
+action = "edit"

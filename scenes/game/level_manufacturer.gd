@@ -76,6 +76,7 @@ func _process(_delta: float):
 		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
 	if get_tree():
 		if get_tree().get_nodes_in_group("players").is_empty():
+			GlobalVariables.keys = 0
 			get_tree().reload_current_scene()
 			
 func _on_return_to_menu_pressed() -> void:

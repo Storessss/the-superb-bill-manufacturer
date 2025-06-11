@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://xyb2pibekhkm"]
+
+[ext_resource type="Texture2D" uid="uid://d3y6xmjtvhxbq" path="res://sprites/left_button.png" id="1_6cd6i"]
+[ext_resource type="Texture2D" uid="uid://domj6ycmisaje" path="res://sprites/right_button.png" id="2_h7hui"]
+[ext_resource type="Texture2D" uid="uid://dotmvhw5fixmc" path="res://sprites/jump_button.png" id="3_nkh36"]
+[ext_resource type="Texture2D" uid="uid://0kyf6fbo51eh" path="res://sprites/down_button.png" id="4_4u0d6"]
+
+[node name="CameraControls" type="Node2D"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+z_index = -2
+position = Vector2(-50, -20)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_6cd6i")
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+z_index = -2
+position = Vector2(50, -20)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_h7hui")
+action = "right"
+
+[node name="Up" type="TouchScreenButton" parent="."]
+z_index = -2
+position = Vector2(0, -50)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_nkh36")
+action = "up"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+z_index = -2
+position = Vector2(0, 10)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_4u0d6")
+action = "down"
