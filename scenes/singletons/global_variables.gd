@@ -123,6 +123,7 @@ func return_to_menu() -> void:
 	GlobalVariables.level_data = {}
 	GlobalVariables.level_name = ""
 	GlobalVariables.level_code = ""
+	GlobalVariables.keys = 0
 	get_tree().change_scene_to_file("res://scenes/game/api_scenes/game_menu.tscn")
 	
 var master_volume_value: int = 5

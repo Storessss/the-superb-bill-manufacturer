@@ -17,7 +17,7 @@ boot_splash/bg_color=Color(0.548963, 0.548963, 0.548963, 1)
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/image="uid://c8v8p8d71j7wj"
-config/icon="uid://ce3588ef4gegg"
+config/icon="uid://mtc4t7wc0yys"
 
 [autoload]
 
