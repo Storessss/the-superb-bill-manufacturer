@@ -42,7 +42,7 @@ func _on_request_completed(result, response_code, headers, body):
 		GlobalVariables.level_name = response.get("name")
 		GlobalVariables.level_data = JSON.parse_string(response.get("data"))
 		GlobalVariables.level_code = response.get("code")
-		get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+		get_tree().change_scene_to_file("res://scenes/main/level_manufacturer.tscn")
 	elif response_code == 404:
 		%StateLabel.text = str(response.get("message", "No message"))
 	else:
@@ -55,7 +55,7 @@ func _on_search_by_code_button_pressed() -> void:
 	get_level_by_code()
 
 func _on_create_level_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/level_blueprint.tscn")
 	
 func _process(_delta: float) -> void:
 	var master_db = linear_to_db($VBoxContainer/MasterVolume.value) -14

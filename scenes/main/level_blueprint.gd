@@ -80,11 +80,11 @@ func _process(delta: float) -> void:
 			if category == 0:
 				if selector == 0:
 					save_level()
-					get_tree().change_scene_to_file("res://scenes/game/level_manufacturer.tscn")
+					get_tree().change_scene_to_file("res://scenes/main/level_manufacturer.tscn")
 				elif selector == 1:
 					save_level()
 					print(GlobalVariables.level_data)
-					get_tree().change_scene_to_file("res://scenes/game/api_scenes/save_level.tscn")
+					get_tree().change_scene_to_file("res://scenes/main/api_scenes/save_level.tscn")
 			elif not erase_on and not rotate_on:
 				if category != 0:
 					var mouse_pos = get_global_mouse_position()
@@ -103,7 +103,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("rotate"):
 		switch_rotate_state()
 		
-	if not (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+	if OS.get_name() != "Android":
 		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
 		if source.get_tile_texture_region(Vector2i(selector, category)):
 			var rect = source.get_tile_texture_region(Vector2i(selector, category))

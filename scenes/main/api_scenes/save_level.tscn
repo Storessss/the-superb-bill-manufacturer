@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ghi2jq7gpdx0"]
 
-[ext_resource type="Script" uid="uid://cosjxt4ra2aiy" path="res://scenes/game/api_scenes/save_level.gd" id="1_wd2id"]
+[ext_resource type="Script" uid="uid://cosjxt4ra2aiy" path="res://scenes/main/api_scenes/save_level.gd" id="1_wd2id"]
 [ext_resource type="Theme" uid="uid://dct7dwc7568bd" path="res://fonts/MinimalUI.tres" id="2_qc10h"]
 
 [node name="SaveLevel" type="Control"]

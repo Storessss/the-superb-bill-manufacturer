@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _process(delta: float) -> void:
-	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+	if OS.get_name() == "Android":
 		$Left.visible = true
 		$Right.visible = true
 		$Jump.visible = true

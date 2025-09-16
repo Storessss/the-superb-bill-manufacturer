@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://h75jakvypfwe"]
 
 [ext_resource type="Texture2D" uid="uid://d3y6xmjtvhxbq" path="res://sprites/left_button.png" id="1_3aok2"]
-[ext_resource type="Script" uid="uid://bktm6ifckv26t" path="res://scenes/game/touch_controls.gd" id="1_tdk8j"]
+[ext_resource type="Script" uid="uid://bktm6ifckv26t" path="res://scenes/main/move_controls.gd" id="1_tdk8j"]
 [ext_resource type="Texture2D" uid="uid://domj6ycmisaje" path="res://sprites/right_button.png" id="2_rk0qf"]
 [ext_resource type="Texture2D" uid="uid://dotmvhw5fixmc" path="res://sprites/jump_button.png" id="3_tdk8j"]
 [ext_resource type="Texture2D" uid="uid://dqn1jd71vre4j" path="res://sprites/restart_button.png" id="4_pp6oc"]
 [ext_resource type="Texture2D" uid="uid://0kyf6fbo51eh" path="res://sprites/down_button.png" id="5_pp6oc"]
 [ext_resource type="Texture2D" uid="uid://tada57uc5tug" path="res://sprites/edit_button.png" id="5_rk0qf"]
 
-[node name="TouchControls" type="CanvasLayer"]
+[node name="MoveControls" type="CanvasLayer"]
 script = ExtResource("1_tdk8j")
 
 [node name="Left" type="TouchScreenButton" parent="."]

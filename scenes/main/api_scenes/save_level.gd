@@ -51,6 +51,6 @@ func _on_request_completed(result, response_code, headers, body):
 		%StateLabel.text = "Unexpected error. Code: " + str(response_code)
 
 func _on_return_to_level_builder_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/level_blueprint.tscn")
 func _on_return_to_menu_pressed() -> void:
 	GlobalVariables.return_to_menu()

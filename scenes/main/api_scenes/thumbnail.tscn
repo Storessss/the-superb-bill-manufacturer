@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ce3588ef4gegg" path="res://sprites/bill_idle1.png" id="4_vcxhd"]
 [ext_resource type="Texture2D" uid="uid://5blcaak2uacc" path="res://sprites/bill_idle2.png" id="5_msbp3"]
-[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="6_wr8ba"]
+[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/main/tilemap.tscn" id="6_wr8ba"]
 [ext_resource type="Texture2D" uid="uid://bcn2a1vml61ts" path="res://sprites/eye_light.png" id="7_j27tn"]
 [ext_resource type="Texture2D" uid="uid://y7y6e18vhy00" path="res://sprites/background.png" id="8_gsuu4"]
 [ext_resource type="Texture2D" uid="uid://bq3dk81yfg1iq" path="res://sprites/eye.png" id="9_xoq4o"]

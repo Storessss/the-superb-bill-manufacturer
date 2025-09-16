@@ -13,10 +13,10 @@ config_version=5
 config/name="The Superb Bill Manufacturer"
 run/main_scene="uid://b42v8vnhencjj"
 config/features=PackedStringArray("4.4", "Mobile")
-boot_splash/bg_color=Color(0.548963, 0.548963, 0.548963, 1)
+boot_splash/bg_color=Color(0.517239, 0.341603, 0.692125, 1)
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-boot_splash/image="uid://c8v8p8d71j7wj"
+boot_splash/image="uid://8pyplf4cbjw5"
 config/icon="uid://mtc4t7wc0yys"
 
 [autoload]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://b82itdljclfjf"]
+[gd_scene load_steps=10 format=4 uid="uid://b82itdljclfjf"]
 
-[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/game/tilemap.tscn" id="1_fc3yj"]
-[ext_resource type="Script" uid="uid://cyib0ofgmnuyn" path="res://scenes/game/level_blueprint.gd" id="1_k7sug"]
+[ext_resource type="PackedScene" uid="uid://bw5fb1wfr61bd" path="res://scenes/main/tilemap.tscn" id="1_fc3yj"]
+[ext_resource type="Script" uid="uid://cyib0ofgmnuyn" path="res://scenes/main/level_blueprint.gd" id="1_k7sug"]
 [ext_resource type="Texture2D" uid="uid://bjrrr774ftmax" path="res://sprites/cell.png" id="3_iu8w8"]
 [ext_resource type="Texture2D" uid="uid://byy5elma0ajgg" path="res://sprites/rotate_off.png" id="4_tdsp8"]
 [ext_resource type="Texture2D" uid="uid://ckioawqcvuqk3" path="res://sprites/erase_off.png" id="5_8i2y6"]
+[ext_resource type="PackedScene" uid="uid://xyb2pibekhkm" path="res://scenes/main/camera_controls.tscn" id="7_fiqag"]
 [ext_resource type="Theme" uid="uid://dct7dwc7568bd" path="res://fonts/MinimalUI.tres" id="10_hsaou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdsp8"]
@@ -97,6 +98,10 @@ grow_horizontal = 0
 theme = ExtResource("10_hsaou")
 text = "Return To Menu (Level Will Be Erased Forever)
 "
+
+[node name="CameraControls" parent="Hud" instance=ExtResource("7_fiqag")]
+z_index = -2
+position = Vector2(1182, 662)
 
 [connection signal="pressed" from="Hud/Erase" to="." method="_on_erase_pressed"]
 [connection signal="pressed" from="Hud/Rotate" to="." method="_on_rotate_pressed"]

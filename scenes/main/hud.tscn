@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl0i4p3lb4mu1"]
 
-[ext_resource type="Script" uid="uid://bn6yaca6gsswf" path="res://scenes/game/hud.gd" id="1_kqgwg"]
+[ext_resource type="Script" uid="uid://bn6yaca6gsswf" path="res://scenes/main/hud.gd" id="1_kqgwg"]
 [ext_resource type="PackedScene" uid="uid://cve3okgge0civ" path="res://scenes/particles/confetti_particles.tscn" id="2_77e6q"]
 
 [node name="Hud" type="CanvasLayer"]

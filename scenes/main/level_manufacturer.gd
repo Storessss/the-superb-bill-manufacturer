@@ -70,10 +70,10 @@ func _process(_delta: float):
 		no_players_reload = false
 		if get_tree().get_nodes_in_group("players").is_empty():
 			GlobalVariables.keys = 0
-			get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+			get_tree().change_scene_to_file("res://scenes/main/level_blueprint.tscn")
 	if Input.is_action_just_pressed("edit"):
 		GlobalVariables.keys = 0
-		get_tree().change_scene_to_file("res://scenes/game/level_blueprint.tscn")
+		get_tree().change_scene_to_file("res://scenes/main/level_blueprint.tscn")
 	if get_tree():
 		if get_tree().get_nodes_in_group("players").is_empty():
 			GlobalVariables.keys = 0
