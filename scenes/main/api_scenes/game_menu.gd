@@ -19,7 +19,11 @@ func get_random_level():
 	http_request.request(url, headers, HTTPClient.METHOD_GET)
 	
 func get_level_by_code():
-	var url = "https://stuffbystore.com/api/tsbm/get-level-by-code/" + %LevelCode.text
+	var url: String
+	if %LevelCode.text == "":
+		url = "https://stuffbystore.com/api/tsbm/get-level-by-code/" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	else:
+		url = "https://stuffbystore.com/api/tsbm/get-level-by-code/" + %LevelCode.text
 	var headers = [
 		"Content-Type: application/json",
 		"Accept: application/json"

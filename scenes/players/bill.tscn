@@ -61,4 +61,5 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_o7ee3")
 
 [node name="Camera2D" parent="." index="2"]
+zoom = Vector2(3, 3)
 position_smoothing_speed = 10.0

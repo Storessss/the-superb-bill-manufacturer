@@ -21,5 +21,5 @@ func activate():
 		GlobalVariables.platform_fall_sound()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
+	if body is TileMapLayer or (body is CharacterBody2D and not body.is_in_group("enemies")):
 		queue_free()

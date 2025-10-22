@@ -75,7 +75,7 @@ func _on_tile_hotbar_button_pressed(tile_button: TextureButton) -> void:
 func _process(delta: float) -> void:
 	max = GlobalVariables.get("category" + str(category) + "_max")
 	
-	if Input.is_action_pressed("place"):
+	if Input.is_action_pressed("place") and not GlobalVariables.move_on:
 		if get_viewport().get_mouse_position().y < $Hud/ColorRect.global_position.y:
 			if category == 0:
 				if selector == 0:
@@ -102,6 +102,12 @@ func _process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("rotate"):
 		switch_rotate_state()
+		
+	if GlobalVariables.move_on:
+		if Input.is_action_just_pressed("zoom_in"):
+			$Camera2D.zoom += Vector2(0.05, 0.05)
+		elif Input.is_action_just_pressed("zoom_out"):
+			$Camera2D.zoom -= Vector2(0.05, 0.05)
 		
 	if OS.get_name() != "Android":
 		var source: TileSetAtlasSource = tilemap.tile_set.get_source(0)
@@ -137,6 +143,8 @@ func _on_erase_pressed() -> void:
 	switch_erase_state()
 func _on_rotate_pressed() -> void:
 	switch_rotate_state()
+func _on_move_pressed() -> void:
+	switch_move_state()
 		
 func switch_erase_state() -> void:
 	erase_on = not erase_on
@@ -151,6 +159,13 @@ func switch_rotate_state() -> void:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_on.png")
 	else:
 		$Hud/Rotate.texture_normal = preload("res://sprites/rotate_off.png")
+		
+func switch_move_state() -> void:
+	GlobalVariables.move_on = not GlobalVariables.move_on
+	if GlobalVariables.move_on:
+		$Hud/Move.texture_normal = preload("res://sprites/move_on.png")
+	else:
+		$Hud/Move.texture_normal = preload("res://sprites/move_off.png")
 
 func _on_return_to_menu_pressed() -> void:
 	GlobalVariables.return_to_menu()

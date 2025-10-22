@@ -40,6 +40,8 @@ var tiles: Dictionary  = {
 var keys: int
 signal level_win
 
+var move_on: bool
+
 func read_level_data(tilemap: TileMapLayer):
 	if level_data:
 		var level_tiles = level_data["tiles"]
