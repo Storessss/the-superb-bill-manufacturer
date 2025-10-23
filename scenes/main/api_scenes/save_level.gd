@@ -47,6 +47,8 @@ func _on_request_completed(result, response_code, headers, body):
 		for field in errors.keys():
 			error_text += field + ": " + str(errors[field][0]) + "\n"
 		%StateLabel.text = error_text
+	elif response_code == 429:
+		%StateLabel.text = "Too many requests, please wait a bit and then retry."
 	else:
 		%StateLabel.text = "Unexpected error. Code: " + str(response_code)
 
