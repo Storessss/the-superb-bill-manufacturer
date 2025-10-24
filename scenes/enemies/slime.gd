@@ -8,9 +8,9 @@ func _physics_process(delta):
 		
 	if $JumpTimer.is_stopped():
 		$JumpTimer.start()
-		var player = get_tree().get_first_node_in_group("players")
-		if player:
-			if player.global_position.x < global_position.x:
+		var target_player = get_tree().get_first_node_in_group("players")
+		if target_player:
+			if target_player.global_position.x < global_position.x:
 				velocity.x = -120
 				$AnimatedSprite2D.flip_h = true
 			else:
